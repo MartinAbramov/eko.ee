@@ -25,27 +25,20 @@ export const translations: Record<Language, Content> = {
       title: 'Meie Tegevusvaldkonnad',
       lubricants: {
         title: 'Määrdeained & Õlid',
-        description:
-          'Goodyear Oil Baltics ametlik edasimüüja. Tipptasemel määrdeained rasketehnikale ja tööstusele.',
+        description: 'Tipptasemel määrdeained.',
         items: [
           'Mootoriõlid',
           'Määrded',
           'Transmissiooniõlid',
           'Hüdraulikaõlid',
         ],
-        cta: 'Küsi pakkumist',
+        cta: 'Vaata spetsifikatsiooni',
       },
       chemicals: {
-        title: 'Tööstuskemikaalid',
-        description:
-          'Lai valik kemikaale ja kütuselisandeid tööstuslikuks tarbimiseks.',
-        items: [
-          'Kütuselisandid',
-          'Lahustid',
-          'AdBlue komponendid',
-          'Puhastuskemikaalid',
-        ],
-        cta: 'Vaata spetsifikatsiooni',
+        title: 'Kütuselisandid',
+        description: '',
+        items: [],
+        cta: 'Küsi pakkumist',
       },
     },
     about: {
@@ -86,27 +79,20 @@ export const translations: Record<Language, Content> = {
       title: 'Business Lines',
       lubricants: {
         title: 'Lubricants & Oils',
-        description:
-          'Official distributor for Goodyear Oil Baltics. Top-tier lubricants for heavy machinery and industry.',
+        description: 'Top-tier lubricants.',
         items: [
           'Motor Oils',
           'Greases',
           'Transmission Fluids',
           'Hydraulic Fluids',
         ],
-        cta: 'Request Quote',
+        cta: 'View Specs',
       },
       chemicals: {
-        title: 'Industrial Chemicals',
-        description:
-          'Wide range of chemicals and fuel additives for industrial consumption.',
-        items: [
-          'Fuel Additives',
-          'Solvents',
-          'AdBlue Components',
-          'Cleaning Chemicals',
-        ],
-        cta: 'View Specs',
+        title: 'Fuel Additives',
+        description: '',
+        items: [],
+        cta: 'Request Quote',
       },
     },
     about: {
@@ -144,34 +130,27 @@ export const translations: Record<Language, Content> = {
       cta: 'Смотреть продукты',
     },
     products: {
-      title: 'Направления Деятельности',
+      title: 'Направления деятельности',
       lubricants: {
-        title: 'Смазочные Материалы',
-        description:
-          'Официальный дистрибьютор Goodyear Oil Baltics. Смазочные материалы высшего класса для тяжелой техники.',
+        title: 'Смазочные материалы',
+        description: 'Смазочные материалы высшего класса.',
         items: [
           'Моторные масла',
           'Смазки',
           'Трансмиссионные жидкости',
           'Гидравлические масла',
         ],
-        cta: 'Запросить цену',
+        cta: 'Спецификация',
       },
       chemicals: {
-        title: 'Промышленная Химия',
-        description:
-          'Широкий спектр химикатов и присадок к топливу для промышленного использования.',
-        items: [
-          'Присадки к топливу',
-          'Растворители',
-          'Компоненты AdBlue',
-          'Чистящие средства',
-        ],
-        cta: 'Спецификация',
+        title: 'Присадки к топливу',
+        description: '',
+        items: [],
+        cta: 'Спросить предложение',
       },
     },
     about: {
-      title: 'Логистическая Точность',
+      title: 'Логистическая точность',
       description:
         'Находясь в стратегическом логистическом хабе Маарду, EKOIMPEX обеспечивает быстрое распределение наливных химикатов и упакованных смазочных материалов.',
       stat1: 'Проверенный поставщик',

@@ -72,7 +72,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                     </a>
                     <a
                       href={`tel:${PHONE_SECONDARY.replace(/\s/g, '')}`}
-                      className="font-medium text-lg text-slate-600 hover:text-goodyear-gold transition-colors"
+                      className="font-bold text-xl text-slate-800 hover:text-goodyear-gold transition-colors"
                     >
                       {PHONE_SECONDARY}
                     </a>

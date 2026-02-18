@@ -117,20 +117,12 @@ const BusinessLines: React.FC<BusinessLinesProps> = ({ content }) => {
           {/* Chemicals Column */}
           <div className="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="h-48 overflow-hidden relative">
-              <div className="absolute inset-0 bg-eco-green/90 z-10 flex items-center justify-center">
-                <FlaskConical
-                  size={64}
-                  className="text-white opacity-20 transform group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
+              <div className="absolute inset-0 z-10 flex items-center justify-center"></div>
               <img
-                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1000&auto=format&fit=crop"
+                src="/additives.jpg"
                 alt="Chemicals"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-4 right-4 z-20 bg-white text-eco-green text-xs font-bold px-3 py-1 rounded border border-eco-green">
-                EKO
-              </div>
             </div>
 
             <div className="p-8">
@@ -143,7 +135,7 @@ const BusinessLines: React.FC<BusinessLinesProps> = ({ content }) => {
                 </h3>
               </div>
 
-              <p className="text-gray-600 mb-6 leading-relaxed min-h-[80px]">
+              <p className="text-gray-600 mb-6 leading-relaxed min-h-[230px]">
                 {content.chemicals.description}
               </p>
 
