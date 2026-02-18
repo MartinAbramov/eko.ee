@@ -3,6 +3,16 @@ import '../index.css';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 
+// Fonts (Self-hosted)
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/montserrat/900.css';
+
 interface Props {
   title: string;
   description: string;
@@ -51,18 +61,7 @@ const { title, description, lang } = Astro.props;
     />
 
     <!-- Fonts (Self-hosted) -->
-    <style is:global>
-      /* Inter */
-      @import '@fontsource/inter/300.css';
-      @import '@fontsource/inter/400.css';
-      @import '@fontsource/inter/500.css';
-      @import '@fontsource/inter/600.css';
-      /* Montserrat */
-      @import '@fontsource/montserrat/600.css';
-      @import '@fontsource/montserrat/700.css';
-      @import '@fontsource/montserrat/800.css';
-      @import '@fontsource/montserrat/900.css';
-    </style>
+    <!-- Fonts imported in frontmatter -->
     <script is:inline>
       if (
         localStorage.getItem('color-theme') === 'dark' ||
