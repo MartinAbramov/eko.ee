@@ -1,5 +1,7 @@
 ---
 import { ArrowRight } from 'lucide-react';
+import { Image } from 'astro:assets';
+import heroImage from '../assets/Hero.webp';
 import { Content } from '../types';
 
 interface Props {
@@ -21,16 +23,18 @@ const { content } = Astro.props;
       loop
       playsinline
       class="w-full h-full object-cover"
-      poster="/Hero.webp"
+      poster={heroImage.src}
     >
       <source src="/Hero.mp4" type="video/mp4" />
       {/* Fallback for browsers that don't support video */}
-      <img
-        src="/Hero.webp"
+      <Image
+        src={heroImage}
         alt="Background"
-        width="1913"
-        height="999"
+        width={1913}
+        height={999}
         class="w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
       />
     </video>
 

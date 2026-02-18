@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/icons/logo.svg';
+
 interface Props {
   class?: string;
 }
@@ -6,11 +9,11 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<img
-  src="/icons/logo.svg"
+<Image
+  src={logoImage}
   class={className}
   alt="EKOIMPEX Logo"
-  width="1024"
-  height="890"
+  width={1024}
+  height={890}
   loading="eager"
 />

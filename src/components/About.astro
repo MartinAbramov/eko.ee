@@ -1,5 +1,7 @@
 ---
 import { Content } from '../types';
+import { Image } from 'astro:assets';
+import engineImage from '../assets/engine.webp';
 import { Award, Truck, CalendarClock } from 'lucide-react';
 
 interface Props {
@@ -18,12 +20,11 @@ const { content } = Astro.props;
             class="absolute -top-4 -left-4 w-20 h-20 border-t-4 border-l-4 border-goodyear-gold rounded-tl-3xl"
           >
           </div>
-          <img
-            src="/engine.webp"
+          <Image
+            src={engineImage}
             alt="Industrial Engine"
-            loading="lazy"
-            width="1024"
-            height="559"
+            width={1024}
+            height={559}
             class="rounded-lg shadow-lg w-full object-cover aspect-[4/3]"
           />
           <div
@@ -49,7 +50,9 @@ const { content } = Astro.props;
           <div
             class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-goodyear-gold"
           >
-            <Award class="text-baltic-blue dark:text-goodyear-gold shrink-0" />
+            <Award
+              className="text-baltic-blue dark:text-goodyear-gold shrink-0"
+            />
             <span
               class="font-semibold text-sm text-slate-800 dark:text-slate-200"
             >
@@ -59,7 +62,9 @@ const { content } = Astro.props;
           <div
             class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-baltic-blue"
           >
-            <Truck class="text-baltic-blue dark:text-goodyear-gold shrink-0" />
+            <Truck
+              className="text-baltic-blue dark:text-goodyear-gold shrink-0"
+            />
             <span
               class="font-semibold text-sm text-slate-800 dark:text-slate-200"
             >
@@ -70,7 +75,7 @@ const { content } = Astro.props;
             class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-eco-green"
           >
             <CalendarClock
-              class="text-baltic-blue dark:text-goodyear-gold shrink-0"
+              className="text-baltic-blue dark:text-goodyear-gold shrink-0"
             />
             <span
               class="font-semibold text-sm text-slate-800 dark:text-slate-200"

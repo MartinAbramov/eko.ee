@@ -1,5 +1,8 @@
 ---
 import { Content } from '../types';
+import { Image } from 'astro:assets';
+import goodyearLogo from '../assets/icons/goodyear-lubricants.svg';
+import additivesImage from '../assets/additives.webp';
 import { Droplet, FlaskConical, CheckCircle2 } from 'lucide-react';
 
 interface Props {
@@ -35,11 +38,11 @@ const { content } = Astro.props;
           <div
             class="absolute inset-0 bg-baltic-blue/90 dark:bg-slate-900/90 z-10 flex flex-col items-center justify-center p-4"
           >
-            <img
-              src="/icons/goodyear-lubricants.svg"
+            <Image
+              src={goodyearLogo}
               alt="Goodyear Lubricants"
-              width="1402"
-              height="322"
+              width={1402}
+              height={322}
               class="h-16 md:h-20 w-auto transform group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -97,12 +100,11 @@ const { content } = Astro.props;
         <div class="h-48 overflow-hidden relative">
           <div class="absolute inset-0 z-10 flex items-center justify-center">
           </div>
-          <img
-            src="/additives.webp"
+          <Image
+            src={additivesImage}
             alt="Chemicals"
-            loading="lazy"
-            width="1024"
-            height="572"
+            width={1024}
+            height={572}
             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
           />
         </div>
