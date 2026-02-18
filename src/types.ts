@@ -11,6 +11,10 @@ export interface Content {
     contact: string;
     callAction: string;
   };
+  meta: {
+    title: string;
+    description: string;
+  };
   hero: {
     title: string;
     subtitle: string;

@@ -16,6 +16,11 @@ export const ui: Record<string, Content> = {
       contact: 'Kontakt',
       callAction: 'Helista',
     },
+    meta: {
+      title: 'EKOIMPEX - Tööstuslik Jõud. Logistiline Täpsus.',
+      description:
+        'EKOIMPEX - Premium määrdeained ja tööstuskemikaalid. Ametlik Goodyeari partner Eestis.',
+    },
     hero: {
       title: 'Esmaklassilised määrdeained ja tööstuskemikaalid',
       subtitle: '',
@@ -69,6 +74,11 @@ export const ui: Record<string, Content> = {
       contact: 'Contact',
       callAction: 'Call Now',
     },
+    meta: {
+      title: 'EKOIMPEX - Industrial Strength. Logistics Precision.',
+      description:
+        'EKOIMPEX - Premium lubricants and industrial chemicals. Official Goodyear partner in Estonia.',
+    },
     hero: {
       title: 'Premium Lubricants & Industrial Chemicals',
       subtitle: '',
@@ -121,6 +131,11 @@ export const ui: Record<string, Content> = {
       products: 'Продукты',
       contact: 'Контакты',
       callAction: 'Позвонить',
+    },
+    meta: {
+      title: 'EKOIMPEX - Промышленная Мощь. Логистическая Точность.',
+      description:
+        'EKOIMPEX - Премиальные смазочные материалы и промышленные химикаты. Официальный партнер Goodyear в Эстонии.',
     },
     hero: {
       title: 'Премиальные смазочные материалы и промышленные химикаты',

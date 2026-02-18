@@ -23,19 +23,22 @@ const { title, description, lang } = Astro.props;
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://eko.ee/" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://eko.ee/favicon.svg" />
+    <meta property="og:image" content={new URL("/favicon.svg", Astro.site)} />
     <meta property="og:site_name" content="EKOIMPEX" />
-    <meta property="og:locale" content={`${lang}_${lang.toUpperCase()}`} />
+    <meta property="og:locale" content={lang === 'et' ? 'et_EE' : lang === 'en' ? 'en_US' : 'ru_RU'} />
+    <meta property="og:locale:alternate" content="et_EE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ru_RU" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://eko.ee/" />
+    <meta property="twitter:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://eko.ee/favicon.svg" />
+    <meta property="twitter:image" content={new URL("/favicon.svg", Astro.site)} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

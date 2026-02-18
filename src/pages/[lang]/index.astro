@@ -22,8 +22,7 @@ const { lang } = Astro.props;
 const currentLang = lang;
 const content = ui[currentLang];
 
-const title = "EKOIMPEX - Industrial Strength. Logistics Precision.";
-const description = "EKOIMPEX - Premium määrdeained ja tööstuskemikaalid. Ametlik Goodyeari partner Eestis.";
+const { title, description } = content.meta;
 ---
 
 <Layout title={title} description={description} lang={Astro.params.lang}>
