@@ -43,7 +43,7 @@ export const translations: Record<Language, Content> = {
     about: {
       title: 'Logistiline Täpsus',
       description:
-        'EKOIMPEX tagab kvaliteetsete määrdeainete kiire ja tõhusa tarnimise üle kogu Eesti.',
+        'EKOIMPEX tagab kvaliteetsete määrdeainete kiire ja tõhusa tarnimise kogu Eestis.',
       stat1: 'Kontrollitud Tarnija',
       stat2: 'Reg. kood 17227481',
       stat3: 'Asutatud 2024',
