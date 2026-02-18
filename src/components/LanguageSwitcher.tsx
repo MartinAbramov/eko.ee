@@ -3,13 +3,11 @@ import { Language } from '../types';
 
 interface LanguageSwitcherProps {
   currentLang: Language;
-  onLanguageChange: (lang: Language) => void;
   variant?: 'light' | 'dark';
 }
 
 const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   currentLang,
-  onLanguageChange,
   variant = 'dark',
 }) => {
   const isLight = variant === 'light';
@@ -29,26 +27,26 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
   return (
     <div className="flex items-center space-x-2 text-sm font-bold tracking-wide">
-      <button
-        onClick={() => onLanguageChange(Language.EST)}
+      <a
+        href="/et"
         className={`px-2 py-1 transition-all duration-200 ${currentLang === Language.EST ? activeClass : inactiveClass}`}
       >
         EST
-      </button>
+      </a>
       <span className={dividerClass}>|</span>
-      <button
-        onClick={() => onLanguageChange(Language.ENG)}
+      <a
+        href="/en"
         className={`px-2 py-1 transition-all duration-200 ${currentLang === Language.ENG ? activeClass : inactiveClass}`}
       >
         ENG
-      </button>
+      </a>
       <span className={dividerClass}>|</span>
-      <button
-        onClick={() => onLanguageChange(Language.RUS)}
+      <a
+        href="/ru"
         className={`px-2 py-1 transition-all duration-200 ${currentLang === Language.RUS ? activeClass : inactiveClass}`}
       >
         RUS
-      </button>
+      </a>
     </div>
   );
 };

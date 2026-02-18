@@ -8,14 +8,9 @@ import Logo from './Logo';
 interface HeaderProps {
   content: Content['nav'];
   currentLang: Language;
-  onLanguageChange: (lang: Language) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({
-  content,
-  currentLang,
-  onLanguageChange,
-}) => {
+const Header: React.FC<HeaderProps> = ({ content, currentLang }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -57,7 +52,6 @@ const Header: React.FC<HeaderProps> = ({
         <nav className="hidden md:flex items-center space-x-6">
           <LanguageSwitcher
             currentLang={currentLang}
-            onLanguageChange={onLanguageChange}
             variant={isScrolled ? 'dark' : 'light'}
           />
 
@@ -73,10 +67,7 @@ const Header: React.FC<HeaderProps> = ({
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-4">
           <div className={`${isScrolled ? 'block' : 'hidden'}`}>
-            <LanguageSwitcher
-              currentLang={currentLang}
-              onLanguageChange={onLanguageChange}
-            />
+            <LanguageSwitcher currentLang={currentLang} />
           </div>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -110,11 +101,7 @@ const Header: React.FC<HeaderProps> = ({
           </button>
           <div className="pt-2 flex justify-between items-center">
             <span className="text-sm text-gray-500">Language:</span>
-            <LanguageSwitcher
-              currentLang={currentLang}
-              onLanguageChange={onLanguageChange}
-              variant="dark"
-            />
+            <LanguageSwitcher currentLang={currentLang} variant="dark" />
           </div>
         </div>
       )}

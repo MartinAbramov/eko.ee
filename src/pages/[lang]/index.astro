@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import Hero from "../../components/Hero";
+import About from "../../components/About";
+import BusinessLines from "../../components/BusinessLines";
+import Contact from "../../components/Contact";
+import Footer from "../../components/Footer";
+import MobileStickyNav from "../../components/MobileStickyNav";
+import { translations } from "../../constants";
+import { Language } from "../../types";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "et" }, props: { lang: Language.EST } },
+    { params: { lang: "en" }, props: { lang: Language.ENG } },
+    { params: { lang: "ru" }, props: { lang: Language.RUS } },
+  ];
+}
+
+const { lang } = Astro.props;
+const currentLang = lang;
+const content = translations[currentLang];
+
+const title = "EKOIMPEX - Industrial Strength. Logistics Precision.";
+const description = "EKOIMPEX - Premium määrdeained ja tööstuskemikaalid. Ametlik Goodyeari partner Eestis.";
+---
+
+<Layout title={title} description={description} lang={Astro.params.lang}>
+  <Header
+    content={content.nav}
+    currentLang={currentLang}
+    client:load
+  />
+
+  <main>
+    <Hero content={content.hero} />
+    <About content={content.about} />
+    <BusinessLines content={content.products} />
+    <Contact content={content.contact} />
+  </main>
+
+  <Footer content={content.footer} />
+
+  <MobileStickyNav content={content.contact} client:media="(max-width: 768px)" />
+</Layout>

@@ -46,17 +46,13 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
             {content.title}
           </h1>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={() =>
-                document
-                  .getElementById('products')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
+            <a
+              href="#products"
               className="bg-goodyear-gold text-baltic-blue hover:bg-yellow-400 px-8 py-4 rounded font-bold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
             >
               {content.cta}
               <ArrowRight size={20} />
-            </button>
+            </a>
           </div>
         </div>
       </div>
