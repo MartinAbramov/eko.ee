@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import MobileStickyNav from './components/MobileStickyNav';
 
 const getBrowserLanguage = (): Language => {
+  if (typeof navigator === 'undefined') return Language.EST;
   const browserLang = navigator.language.toLowerCase();
 
   if (browserLang.startsWith('et')) return Language.EST;

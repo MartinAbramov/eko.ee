@@ -1,15 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { ViteReactSSG } from 'vite-react-ssg';
 import App from './App';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error('Could not find root element to mount to');
-}
+const routes = [
+  {
+    path: '/',
+    element: <App />,
+  },
+];
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+export const createRoot = ViteReactSSG({ routes });
