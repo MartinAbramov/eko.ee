@@ -25,6 +25,7 @@ dist-ssr
 
 # Astro
 .astro/
+public/__astro_font_generated__/
 
 # Environment Variables
 .env
