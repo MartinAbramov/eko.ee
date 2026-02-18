@@ -11,25 +11,24 @@ import MobileStickyNav from './components/MobileStickyNav';
 
 const getBrowserLanguage = (): Language => {
   const browserLang = navigator.language.toLowerCase();
-  
+
   if (browserLang.startsWith('et')) return Language.EST;
   if (browserLang.startsWith('ru')) return Language.RUS;
   if (browserLang.startsWith('en')) return Language.ENG;
-  
+
   return Language.EST;
 };
 
 function App() {
   const [currentLang, setCurrentLang] = useState<Language>(getBrowserLanguage);
-  
+
   // Get content based on current language
   const content = translations[currentLang];
 
   return (
     <div className="min-h-screen font-sans text-slate-900 bg-white selection:bg-goodyear-gold selection:text-baltic-blue pb-16 md:pb-0">
-      
-      <Header 
-        content={content.nav} 
+      <Header
+        content={content.nav}
         currentLang={currentLang}
         onLanguageChange={setCurrentLang}
       />
@@ -42,9 +41,8 @@ function App() {
       </main>
 
       <Footer content={content.footer} />
-      
-      <MobileStickyNav content={content.contact} />
 
+      <MobileStickyNav content={content.contact} />
     </div>
   );
 }

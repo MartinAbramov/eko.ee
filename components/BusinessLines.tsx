@@ -1,7 +1,6 @@
 import React from 'react';
 import { Content } from '../types';
 import { Droplet, FlaskConical, CheckCircle2 } from 'lucide-react';
-import { PHONE_PRIMARY } from '../constants';
 
 interface BusinessLinesProps {
   content: Content['products'];
@@ -19,20 +18,19 @@ const BusinessLines: React.FC<BusinessLinesProps> = ({ content }) => {
 
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          
           {/* Lubricants Column */}
           <div className="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300">
-            <a 
-              href="https://goodyearoilbaltics.com/" 
-              target="_blank" 
+            <a
+              href="https://goodyearoilbaltics.com/"
+              target="_blank"
               rel="noopener noreferrer"
               className="block h-48 overflow-hidden relative cursor-pointer"
             >
               {/* Blue Overlay with Goodyear Logo */}
               <div className="absolute inset-0 bg-baltic-blue/90 z-10 flex flex-col items-center justify-center p-4">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 1402.82 322.09" 
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1402.82 322.09"
                   className="h-16 md:h-20 w-auto transform group-hover:scale-105 transition-transform duration-500 fill-goodyear-gold"
                   aria-label="Goodyear Lubricants"
                 >
@@ -75,29 +73,37 @@ const BusinessLines: React.FC<BusinessLinesProps> = ({ content }) => {
                 </svg>
               </div>
             </a>
-            
+
             <div className="p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-3 bg-blue-50 rounded-full text-baltic-blue">
-                   <Droplet size={24} />
+                  <Droplet size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-baltic-blue font-display">{content.lubricants.title}</h3>
+                <h3 className="text-2xl font-bold text-baltic-blue font-display">
+                  {content.lubricants.title}
+                </h3>
               </div>
-              
+
               <p className="text-gray-600 mb-6 leading-relaxed min-h-[80px]">
                 {content.lubricants.description}
               </p>
 
               <ul className="space-y-3 mb-8">
                 {content.lubricants.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-slate-700">
-                    <CheckCircle2 size={18} className="text-goodyear-gold shrink-0" />
+                  <li
+                    key={idx}
+                    className="flex items-center gap-3 text-slate-700"
+                  >
+                    <CheckCircle2
+                      size={18}
+                      className="text-goodyear-gold shrink-0"
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <a 
+              <a
                 href="https://goodyearoilbaltics.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -112,40 +118,51 @@ const BusinessLines: React.FC<BusinessLinesProps> = ({ content }) => {
           <div className="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="h-48 overflow-hidden relative">
               <div className="absolute inset-0 bg-eco-green/90 z-10 flex items-center justify-center">
-                <FlaskConical size={64} className="text-white opacity-20 transform group-hover:scale-110 transition-transform duration-500" />
+                <FlaskConical
+                  size={64}
+                  className="text-white opacity-20 transform group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
-              <img 
-                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1000&auto=format&fit=crop" 
-                alt="Chemicals" 
+              <img
+                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1000&auto=format&fit=crop"
+                alt="Chemicals"
                 className="w-full h-full object-cover"
               />
-               <div className="absolute top-4 right-4 z-20 bg-white text-eco-green text-xs font-bold px-3 py-1 rounded border border-eco-green">
+              <div className="absolute top-4 right-4 z-20 bg-white text-eco-green text-xs font-bold px-3 py-1 rounded border border-eco-green">
                 EKO
               </div>
             </div>
-            
+
             <div className="p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-3 bg-green-50 rounded-full text-eco-green">
-                   <FlaskConical size={24} />
+                  <FlaskConical size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 font-display">{content.chemicals.title}</h3>
+                <h3 className="text-2xl font-bold text-slate-800 font-display">
+                  {content.chemicals.title}
+                </h3>
               </div>
-              
+
               <p className="text-gray-600 mb-6 leading-relaxed min-h-[80px]">
                 {content.chemicals.description}
               </p>
 
               <ul className="space-y-3 mb-8">
                 {content.chemicals.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-slate-700">
-                    <CheckCircle2 size={18} className="text-eco-green shrink-0" />
+                  <li
+                    key={idx}
+                    className="flex items-center gap-3 text-slate-700"
+                  >
+                    <CheckCircle2
+                      size={18}
+                      className="text-eco-green shrink-0"
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <a 
+              <a
                 href={`mailto:ekoimpex.info@gmail.com?subject=Request Spec: Chemicals`}
                 className="block w-full text-center py-3 border-2 border-eco-green text-eco-green font-bold rounded hover:bg-eco-green hover:text-white transition-colors"
               >
@@ -153,7 +170,6 @@ const BusinessLines: React.FC<BusinessLinesProps> = ({ content }) => {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

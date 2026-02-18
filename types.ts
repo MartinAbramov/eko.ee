@@ -1,7 +1,7 @@
 export enum Language {
   EST = 'EST',
   ENG = 'ENG',
-  RUS = 'RUS'
+  RUS = 'RUS',
 }
 
 export interface Content {

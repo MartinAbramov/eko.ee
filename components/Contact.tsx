@@ -1,7 +1,13 @@
 import React from 'react';
 import { Content } from '../types';
 import { MapPin, Phone, Mail, Navigation } from 'lucide-react';
-import { PHONE_PRIMARY, PHONE_SECONDARY, EMAIL_CONTACT, ADDRESS_MAP_URL, WAZE_LINK } from '../constants';
+import {
+  PHONE_PRIMARY,
+  PHONE_SECONDARY,
+  EMAIL_CONTACT,
+  ADDRESS_MAP_URL,
+  WAZE_LINK,
+} from '../constants';
 
 interface ContactProps {
   content: Content['contact'];
@@ -19,10 +25,8 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
-          
           {/* Left Side: Contact Info Cards */}
           <div className="lg:col-span-2 space-y-6">
-            
             {/* Address Card */}
             <div className="bg-industrial-grey p-6 rounded-lg shadow-sm border-t-4 border-baltic-blue hover:shadow-md transition-shadow">
               <div className="flex items-start gap-4">
@@ -30,13 +34,15 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="text-sm uppercase font-bold text-gray-500 mb-1">{content.addressLabel}</h4>
+                  <h4 className="text-sm uppercase font-bold text-gray-500 mb-1">
+                    {content.addressLabel}
+                  </h4>
                   <p className="font-medium text-slate-800 text-lg leading-snug mb-4">
                     {content.address}
                   </p>
-                  <a 
-                    href={WAZE_LINK} 
-                    target="_blank" 
+                  <a
+                    href={WAZE_LINK}
+                    target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-bold text-baltic-blue hover:text-eco-green transition-colors"
                   >
@@ -54,12 +60,20 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-sm uppercase font-bold text-gray-500 mb-1">{content.phoneLabel}</h4>
+                  <h4 className="text-sm uppercase font-bold text-gray-500 mb-1">
+                    {content.phoneLabel}
+                  </h4>
                   <div className="flex flex-col gap-2">
-                    <a href={`tel:${PHONE_PRIMARY.replace(/\s/g, '')}`} className="font-bold text-xl text-slate-800 hover:text-goodyear-gold transition-colors">
+                    <a
+                      href={`tel:${PHONE_PRIMARY.replace(/\s/g, '')}`}
+                      className="font-bold text-xl text-slate-800 hover:text-goodyear-gold transition-colors"
+                    >
                       {PHONE_PRIMARY}
                     </a>
-                    <a href={`tel:${PHONE_SECONDARY.replace(/\s/g, '')}`} className="font-medium text-lg text-slate-600 hover:text-goodyear-gold transition-colors">
+                    <a
+                      href={`tel:${PHONE_SECONDARY.replace(/\s/g, '')}`}
+                      className="font-medium text-lg text-slate-600 hover:text-goodyear-gold transition-colors"
+                    >
                       {PHONE_SECONDARY}
                     </a>
                   </div>
@@ -74,30 +88,33 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="text-sm uppercase font-bold text-gray-500 mb-1">{content.emailLabel}</h4>
-                  <a href={`mailto:${EMAIL_CONTACT}`} className="font-medium text-lg text-slate-800 hover:text-eco-green transition-colors break-all">
+                  <h4 className="text-sm uppercase font-bold text-gray-500 mb-1">
+                    {content.emailLabel}
+                  </h4>
+                  <a
+                    href={`mailto:${EMAIL_CONTACT}`}
+                    className="font-medium text-lg text-slate-800 hover:text-eco-green transition-colors break-all"
+                  >
                     {EMAIL_CONTACT}
                   </a>
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* Right Side: Map */}
           <div className="lg:col-span-3 min-h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
-             <iframe 
-               src={ADDRESS_MAP_URL}
-               width="100%" 
-               height="100%" 
-               style={{ border: 0, minHeight: '400px' }} 
-               allowFullScreen 
-               loading="lazy" 
-               referrerPolicy="no-referrer-when-downgrade"
-               title="EKO IMPEX Location"
-             ></iframe>
+            <iframe
+              src={ADDRESS_MAP_URL}
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '400px' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="EKOIMPEX Location"
+            ></iframe>
           </div>
-
         </div>
       </div>
     </section>
