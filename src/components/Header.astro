@@ -3,6 +3,7 @@ import { Menu, X, Phone } from 'lucide-react';
 import { Language, Content } from '../types';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import Logo from './Logo.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { PHONE_PRIMARY } from '../constants';
 
 interface Props {
@@ -28,6 +29,8 @@ const { content, currentLang } = Astro.props;
       <div id="lang-switcher-desktop">
         <LanguageSwitcher currentLang={currentLang} variant="light" />
       </div>
+
+      <ThemeToggle />
 
       <a
         href={`tel:${PHONE_PRIMARY.replace(/\s/g, '')}`}
@@ -57,29 +60,34 @@ const { content, currentLang } = Astro.props;
   {/* Mobile Menu Overlay */}
   <div
     id="mobile-menu-overlay"
-    class="absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 md:hidden flex-col p-6 space-y-4 animate-fade-in-down hidden"
+    class="absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-xl border-t border-gray-100 dark:border-gray-800 md:hidden flex-col p-6 space-y-4 animate-fade-in-down hidden"
   >
     <button
       data-scroll-to="about"
-      class="text-lg font-medium text-baltic-blue text-left py-2 border-b border-gray-100 w-full"
+      class="text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
     >
       {content.about}
     </button>
     <button
       data-scroll-to="products"
-      class="text-lg font-medium text-baltic-blue text-left py-2 border-b border-gray-100 w-full"
+      class="text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
     >
       {content.products}
     </button>
     <button
       data-scroll-to="contact"
-      class="text-lg font-medium text-baltic-blue text-left py-2 border-b border-gray-100 w-full"
+      class="text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
     >
       {content.contact}
     </button>
     <div class="pt-2 flex justify-between items-center">
-      <span class="text-sm text-gray-500">Language:</span>
-      <LanguageSwitcher currentLang={currentLang} variant="dark" />
+      <span class="text-sm text-gray-500 dark:text-gray-400">Language:</span>
+      <LanguageSwitcher currentLang={currentLang} variant="light" />
+    </div>
+    <div
+      class="pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-end"
+    >
+      <ThemeToggle />
     </div>
   </div>
 </header>
@@ -88,9 +96,7 @@ const { content, currentLang } = Astro.props;
   // SCROLL LOGIC
   const header = document.getElementById('main-header');
   const mobileBtn = document.getElementById('mobile-menu-btn');
-  const desktopLangSwitcher = document.querySelector(
-    '#lang-switcher-desktop .text-slate-800',
-  ); // Simple selector assumption, might need refining or props passing
+  const desktopLangSwitcher = document.querySelector('#lang-switcher-desktop'); // Simple selector assumption, might need refining or props passing
   const mobileHeaderLangSwitcher = document.getElementById(
     'lang-switcher-mobile-header',
   );
@@ -109,56 +115,42 @@ const { content, currentLang } = Astro.props;
     const isScrolled = window.scrollY > 20;
 
     if (isScrolled) {
-      header?.classList.add('bg-white', 'shadow-md', 'py-2');
+      header?.classList.add(
+        'bg-white',
+        'dark:bg-slate-900',
+        'shadow-md',
+        'py-2',
+      );
       header?.classList.remove('bg-transparent', 'py-4');
 
       // Toggle Mobile Button Color
       mobileBtn?.classList.remove('text-white');
-      mobileBtn?.classList.add('text-baltic-blue');
+      mobileBtn?.classList.add('text-baltic-blue', 'dark:text-white');
 
       // Show mobile header lang switcher if needed
       mobileHeaderLangSwitcher?.classList.remove('hidden');
       mobileHeaderLangSwitcher?.classList.add('block');
 
-      // Update Desktop Lang Switcher Color (A bit hacky without react props)
-      // Ideally we select the links and toggle classes
-      const langLinks = document.querySelectorAll('#lang-switcher-desktop a');
-      langLinks.forEach((link) => {
-        if (!link.classList.contains('text-baltic-blue')) {
-          // if not active
-          link.classList.remove('text-slate-800', 'hover:text-baltic-blue'); // light variant
-          link.classList.add('text-slate-800'); // actually wait, scrolled = white bg = dark text
-          // The 'light' variant in props meant 'light background' or 'light text'?
-          // In React: variant='light' -> text-slate-800 (for white background?)
-          // wait, in React: isScrolled ? 'dark' : 'light'
-          // isScrolled (white bg) -> 'dark' variant (text-gray-400??)
-          // In React code: variant={isScrolled ? 'dark' : 'light'}
-          // variants.dark: text-gray-400. variants.light: text-slate-800.
-          // When scrolled (white bg), we want DISTINCT text. slate-800 is dark. gray-400 is grey.
-          // Let's just fix the logic:
-          // Top of page (transparent bg, likely dark video/image): We need WHITE text.
-          // Scroll (white bg): We need DARK text.
-        }
-      });
-      // Actually, looking at Logo.tsx in React: variant={isScrolled ? 'color' : 'white'}
-      // And LanguageSwitcher.tsx in React: variant={isScrolled ? 'dark' : 'light'}
+      desktopLangSwitcher?.classList.remove('text-white');
+      desktopLangSwitcher?.classList.add('text-baltic-blue');
     } else {
-      header?.classList.remove('bg-white', 'shadow-md', 'py-2');
+      header?.classList.remove(
+        'bg-white',
+        'dark:bg-slate-900',
+        'shadow-md',
+        'py-2',
+      );
       header?.classList.add('bg-transparent', 'py-4');
 
       mobileBtn?.classList.add('text-white');
-      mobileBtn?.classList.remove('text-baltic-blue');
+      mobileBtn?.classList.remove('text-baltic-blue', 'dark:text-white');
+
+      desktopLangSwitcher?.classList.remove('text-baltic-blue');
+      desktopLangSwitcher?.classList.add('text-white');
 
       mobileHeaderLangSwitcher?.classList.add('hidden');
       mobileHeaderLangSwitcher?.classList.remove('block');
     }
-
-    // Toggle Language Switcher colors based on scroll
-    // Since we rendered it statically with a variant prop, we might need to query and force class updates
-    // This is the tricky part of "Static" Astro.
-    // A better way: Render BOTH variants for desktop and toggle visibility?
-    // Or just use CSS variables for colors that change based on #main-header.scrolled context?
-    // CSS Variables is the cleanest Vanilla way!
   }
 
   // MOBILE MENU LOGIC
@@ -175,10 +167,10 @@ const { content, currentLang } = Astro.props;
       iconMenu?.classList.add('hidden');
       iconClose?.classList.remove('hidden');
       // Force header to white background when menu is open
-      header?.classList.add('bg-white');
+      header?.classList.add('bg-white', 'dark:bg-slate-900');
       header?.classList.remove('bg-transparent');
       mobileBtn?.classList.remove('text-white');
-      mobileBtn?.classList.add('text-baltic-blue');
+      mobileBtn?.classList.add('text-baltic-blue', 'dark:text-white');
     } else {
       menuOverlay?.classList.add('hidden');
       menuOverlay?.classList.remove('flex');
@@ -186,10 +178,10 @@ const { content, currentLang } = Astro.props;
       iconClose?.classList.add('hidden');
       // Revert header state if at top
       if (window.scrollY <= 20) {
-        header?.classList.remove('bg-white');
+        header?.classList.remove('bg-white', 'dark:bg-slate-900');
         header?.classList.add('bg-transparent');
         mobileBtn?.classList.add('text-white');
-        mobileBtn?.classList.remove('text-baltic-blue');
+        mobileBtn?.classList.remove('text-baltic-blue', 'dark:text-white');
       }
     }
   });
@@ -227,10 +219,6 @@ const { content, currentLang } = Astro.props;
 <style>
   /* CSS Variable approach for Language Switcher colors to avoid complex JS DOM manipulation */
   /* Define default (transparent header) colors */
-  :global(#lang-switcher-desktop a) {
-    color: white; /* Default at top */
-    opacity: 0.9;
-  }
   :global(#lang-switcher-desktop a:hover) {
     opacity: 1;
     font-weight: bold;
@@ -244,18 +232,25 @@ const { content, currentLang } = Astro.props;
     opacity: 0.5;
   }
 
-  /* When header has white bg (we will add 'scrolled' class to header parent logic above for cleaner CSS selector? 
-     Actually updateHeaderState adds 'bg-white', we can key off that or add a specific class */
-  :global(#main-header.bg-white #lang-switcher-desktop a) {
-    color: #1e293b; /* slate-800 */
-  }
+  /* When header has white bg */
   :global(#main-header.bg-white #lang-switcher-desktop a:hover) {
-    color: #004ea8; /* baltic-blue */
+    color: #004ea8 !important; /* baltic-blue */
+  }
+  :global(#main-header.dark\:bg-slate-900 #lang-switcher-desktop a:hover) {
+    color: #ffd100 !important; /* gold hover */
   }
   :global(#main-header.bg-white #lang-switcher-desktop a.font-bold) {
-    color: #004ea8; /* Active: baltic-blue */
+    color: #004ea8 !important; /* Active: baltic-blue */
+    opacity: 1;
+  }
+  :global(#main-header.dark\:bg-slate-900 #lang-switcher-desktop a.font-bold) {
+    color: #ffd100 !important; /* Active: gold */
+    opacity: 1;
   }
   :global(#main-header.bg-white #lang-switcher-desktop span) {
-    color: #cbd5e1; /* gray-300 */
+    color: #64748b; /* slate-500 - clearly visible separator */
+  }
+  :global(#main-header.dark\:bg-slate-900 #lang-switcher-desktop span) {
+    color: #475569; /* slate-600 */
   }
 </style>

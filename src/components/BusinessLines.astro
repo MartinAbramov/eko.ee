@@ -9,10 +9,10 @@ interface Props {
 const { content } = Astro.props;
 ---
 
-<section id="products" class="py-20 bg-white">
+<section id="products" class="py-20 bg-white dark:bg-slate-900">
   <div class="container mx-auto px-4 mb-16 text-center">
     <h2
-      class="text-3xl md:text-4xl font-display font-bold text-baltic-blue mb-4"
+      class="text-3xl md:text-4xl font-display font-bold text-baltic-blue dark:text-white mb-4"
     >
       {content.title}
     </h2>
@@ -23,7 +23,7 @@ const { content } = Astro.props;
     <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
       {/* Lubricants Column */}
       <div
-        class="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300"
+        class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-300"
       >
         <a
           href="https://goodyearoilbaltics.com/"
@@ -33,7 +33,7 @@ const { content } = Astro.props;
         >
           {/* Blue Overlay with Goodyear Logo */}
           <div
-            class="absolute inset-0 bg-baltic-blue/90 z-10 flex flex-col items-center justify-center p-4"
+            class="absolute inset-0 bg-baltic-blue/90 dark:bg-slate-900/90 z-10 flex flex-col items-center justify-center p-4"
           >
             <img
               src="/icons/goodyear-lubricants.svg"
@@ -47,22 +47,28 @@ const { content } = Astro.props;
 
         <div class="p-8">
           <div class="flex items-center gap-3 mb-4">
-            <div class="p-3 bg-blue-50 rounded-full text-baltic-blue">
+            <div
+              class="p-3 bg-blue-50 dark:bg-slate-700 rounded-full text-baltic-blue dark:text-goodyear-gold"
+            >
               <Droplet size={24} />
             </div>
-            <h3 class="text-2xl font-bold text-baltic-blue font-display">
+            <h3
+              class="text-2xl font-bold text-baltic-blue dark:text-white font-display"
+            >
               {content.lubricants.title}
             </h3>
           </div>
 
-          <p class="text-gray-600 mb-6 leading-relaxed min-h-[80px]">
+          <p
+            class="text-gray-600 dark:text-slate-300 mb-6 leading-relaxed min-h-[80px]"
+          >
             {content.lubricants.description}
           </p>
 
           <ul class="space-y-3 mb-8">
             {
               content.lubricants.items.map((item) => (
-                <li class="flex items-center gap-3 text-slate-700">
+                <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                   <CheckCircle2
                     size={20}
                     className="text-goodyear-gold shrink-0 mt-0.5"
@@ -77,7 +83,7 @@ const { content } = Astro.props;
             href="https://goodyearoilbaltics.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="block w-full text-center py-3 border-2 border-baltic-blue text-baltic-blue font-bold rounded hover:bg-baltic-blue hover:text-white transition-colors"
+            class="block w-full text-center py-3 border-2 border-baltic-blue dark:border-goodyear-gold text-baltic-blue dark:text-goodyear-gold font-bold rounded hover:bg-baltic-blue hover:text-white dark:hover:bg-goodyear-gold dark:hover:text-baltic-blue transition-colors"
           >
             {content.lubricants.cta}
           </a>
@@ -86,7 +92,7 @@ const { content } = Astro.props;
 
       {/* Chemicals Column */}
       <div
-        class="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300"
+        class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-300"
       >
         <div class="h-48 overflow-hidden relative">
           <div class="absolute inset-0 z-10 flex items-center justify-center">
@@ -97,29 +103,38 @@ const { content } = Astro.props;
             loading="lazy"
             width="1024"
             height="572"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
           />
         </div>
 
         <div class="p-8">
           <div class="flex items-center gap-3 mb-4">
-            <div class="p-3 bg-green-50 rounded-full text-eco-green">
+            <div
+              class="p-3 bg-green-50 dark:bg-slate-700 rounded-full text-eco-green"
+            >
               <FlaskConical size={24} />
             </div>
-            <h3 class="text-2xl font-bold text-slate-800 font-display">
+            <h3
+              class="text-2xl font-bold text-slate-800 dark:text-white font-display"
+            >
               {content.chemicals.title}
             </h3>
           </div>
 
-          <p class="text-gray-600 mb-6 leading-relaxed min-h-[230px]">
+          <p
+            class="text-gray-600 dark:text-slate-300 mb-6 leading-relaxed min-h-[80px]"
+          >
             {content.chemicals.description}
           </p>
 
           <ul class="space-y-3 mb-8">
             {
               content.chemicals.items.map((item) => (
-                <li class="flex items-center gap-3 text-slate-700">
-                  <CheckCircle2 size={18} class="text-eco-green shrink-0" />
+                <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                  <CheckCircle2
+                    size={20}
+                    className="text-eco-green shrink-0 mt-0.5"
+                  />
                   <span>{item}</span>
                 </li>
               ))

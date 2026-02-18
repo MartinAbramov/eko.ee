@@ -10,9 +10,9 @@ const { currentLang, variant = 'light' } = Astro.props;
 
 const variants = {
   light: {
-    text: 'text-slate-800',
-    activeText: 'text-baltic-blue font-bold',
-    hover: 'hover:text-baltic-blue',
+    text: 'dark:text-slate-100', // Darker black for better contrast
+    activeText: 'text-baltic-blue font-bold dark:text-goodyear-gold',
+    hover: 'hover:text-baltic-blue dark:hover:text-goodyear-gold',
   },
   dark: {
     text: 'text-gray-400',
@@ -44,7 +44,7 @@ const v = variants[variant];
           </a>
           {index < array.length - 1 && (
             <span
-              class={`text-gray-300 ${variant === 'dark' ? 'opacity-30' : ''}`}
+              class={`text-gray-300 dark:text-gray-600 ${variant === 'dark' ? 'opacity-30' : ''}`}
             >
               |
             </span>

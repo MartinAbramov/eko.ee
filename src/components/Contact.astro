@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Navigation } from 'lucide-react';
 import {
   PHONE_PRIMARY,
   PHONE_SECONDARY,
-  EMAIL_CONTACT,
+  EMAIL_CONTACT as EMAIL_MAIN,
   ADDRESS_MAP_URL,
   WAZE_LINK,
 } from '../constants';
@@ -16,10 +16,12 @@ interface Props {
 const { content } = Astro.props;
 ---
 
-<section id="contact" class="py-20 bg-white">
+<section id="contact" class="py-20 bg-industrial-grey dark:bg-slate-950">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-baltic-blue mb-4">
+      <h2
+        class="text-3xl md:text-4xl font-display font-bold text-baltic-blue dark:text-white mb-4"
+      >
         {content.title}
       </h2>
       <div class="h-1 w-24 bg-eco-green mx-auto"></div>
@@ -29,23 +31,31 @@ const { content } = Astro.props;
       {/* Left Side: Contact Info Cards */}
       <div class="lg:col-span-2 space-y-6">
         {/* Address Card */}
-        <div class="bg-industrial-grey p-6 rounded-lg shadow-sm border-t-4 border-baltic-blue hover:shadow-md transition-shadow">
+        <div
+          class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border-t-4 border-baltic-blue hover:shadow-md transition-shadow"
+        >
           <div class="flex items-start gap-4">
-            <div class="p-3 bg-blue-100 rounded-full text-baltic-blue">
+            <div
+              class="p-3 bg-blue-100 dark:bg-slate-800 rounded-full text-baltic-blue dark:text-goodyear-gold"
+            >
               <MapPin size={24} />
             </div>
             <div>
-              <h4 class="text-sm uppercase font-bold text-gray-500 mb-1">
+              <h4
+                class="text-sm uppercase font-bold text-gray-500 dark:text-gray-400 mb-1"
+              >
                 {content.addressLabel}
               </h4>
-              <p class="font-medium text-slate-800 text-lg leading-snug mb-4">
+              <p
+                class="font-medium text-slate-800 dark:text-white text-lg leading-snug mb-4"
+              >
                 {content.address}
               </p>
               <a
                 href={WAZE_LINK}
                 target="_blank"
                 rel="noreferrer"
-                class="inline-flex items-center gap-2 text-sm font-bold text-baltic-blue hover:text-eco-green transition-colors"
+                class="inline-flex items-center gap-2 text-sm font-bold text-baltic-blue dark:text-goodyear-gold hover:text-eco-green transition-colors"
               >
                 <Navigation size={16} />
                 {content.directions}
@@ -55,25 +65,31 @@ const { content } = Astro.props;
         </div>
 
         {/* Phones Card */}
-        <div class="bg-industrial-grey p-6 rounded-lg shadow-sm border-t-4 border-goodyear-gold hover:shadow-md transition-shadow">
+        <div
+          class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border-t-4 border-goodyear-gold hover:shadow-md transition-shadow"
+        >
           <div class="flex items-start gap-4">
-            <div class="p-3 bg-yellow-100 rounded-full text-baltic-blue">
+            <div
+              class="p-3 bg-yellow-100 dark:bg-slate-800 rounded-full text-baltic-blue dark:text-goodyear-gold"
+            >
               <Phone size={24} />
             </div>
             <div>
-              <h4 class="text-sm uppercase font-bold text-gray-500 mb-1">
+              <h4
+                class="text-sm uppercase font-bold text-gray-500 dark:text-gray-400 mb-1"
+              >
                 {content.phoneLabel}
               </h4>
               <div class="flex flex-col gap-2">
                 <a
                   href={`tel:${PHONE_PRIMARY.replace(/\s/g, '')}`}
-                  class="font-bold text-xl text-slate-800 hover:text-goodyear-gold transition-colors"
+                  class="font-bold text-xl text-slate-800 dark:text-white hover:text-goodyear-gold transition-colors"
                 >
                   {PHONE_PRIMARY}
                 </a>
                 <a
                   href={`tel:${PHONE_SECONDARY.replace(/\s/g, '')}`}
-                  class="font-bold text-xl text-slate-800 hover:text-goodyear-gold transition-colors"
+                  class="font-bold text-xl text-slate-800 dark:text-white hover:text-goodyear-gold transition-colors"
                 >
                   {PHONE_SECONDARY}
                 </a>
@@ -83,20 +99,26 @@ const { content } = Astro.props;
         </div>
 
         {/* Email Card */}
-        <div class="bg-industrial-grey p-6 rounded-lg shadow-sm border-t-4 border-eco-green hover:shadow-md transition-shadow">
+        <div
+          class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border-t-4 border-eco-green hover:shadow-md transition-shadow"
+        >
           <div class="flex items-start gap-4">
-            <div class="p-3 bg-green-100 rounded-full text-eco-green">
+            <div
+              class="p-3 bg-green-100 dark:bg-slate-800 rounded-full text-eco-green"
+            >
               <Mail size={24} />
             </div>
             <div>
-              <h4 class="text-sm uppercase font-bold text-gray-500 mb-1">
+              <h4
+                class="text-sm uppercase font-bold text-gray-500 dark:text-gray-400 mb-1"
+              >
                 {content.emailLabel}
               </h4>
               <a
-                href={`mailto:${EMAIL_CONTACT}`}
-                class="font-medium text-lg text-slate-800 hover:text-eco-green transition-colors break-all"
+                href={`mailto:${EMAIL_MAIN}`}
+                class="font-medium text-lg text-slate-800 dark:text-white hover:text-eco-green transition-colors break-all"
               >
-                {EMAIL_CONTACT}
+                {EMAIL_MAIN}
               </a>
             </div>
           </div>
@@ -104,7 +126,9 @@ const { content } = Astro.props;
       </div>
 
       {/* Right Side: Map */}
-      <div class="lg:col-span-3 min-h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
+      <div
+        class="lg:col-span-3 min-h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-slate-800"
+      >
         <iframe
           src={ADDRESS_MAP_URL}
           width="100%"
@@ -113,8 +137,7 @@ const { content } = Astro.props;
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="EKOIMPEX Location"
-        ></iframe>
+          title="EKOIMPEX Location"></iframe>
       </div>
     </div>
   </div>
