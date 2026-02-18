@@ -26,16 +26,6 @@ const { content } = Astro.props;
       poster={heroImage.src}
     >
       <source src="/Hero.webm" type="video/webm" />
-      {/* Fallback for browsers that don't support video */}
-      <Image
-        src={heroImage}
-        alt="Background"
-        width={1913}
-        height={999}
-        class="w-full h-full object-cover"
-        loading="eager"
-        fetchpriority="high"
-      />
     </video>
 
     {/* Deep Blue Gradient Overlay */}
