@@ -8,11 +8,11 @@ import { astroFont } from 'astro-font/integration';
 export default defineConfig({
     site: 'https://eko.ee',
     integrations: [react(), astroFont()],
+    build: {
+        inlineStylesheets: 'always',
+    },
     vite: {
         plugins: [tailwindcss()],
-        build: {
-            assetsInlineLimit: 8192,
-        },
     },
     i18n: {
         defaultLocale: "et",
