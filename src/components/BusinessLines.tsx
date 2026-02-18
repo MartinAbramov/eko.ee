@@ -119,8 +119,11 @@ const BusinessLines: React.FC<BusinessLinesProps> = ({ content }) => {
             <div className="h-48 overflow-hidden relative">
               <div className="absolute inset-0 z-10 flex items-center justify-center"></div>
               <img
-                src="/additives.jpg"
+                src="/additives.webp"
                 alt="Chemicals"
+                loading="lazy"
+                width="1024"
+                height="572"
                 className="w-full h-full object-cover"
               />
             </div>

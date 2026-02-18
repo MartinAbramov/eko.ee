@@ -20,11 +20,17 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="/Hero.jpg"
+          poster="/Hero.webp"
         >
           <source src="/Hero.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
-          <img src="/Hero.jpg" className="w-full h-full object-cover" />
+          <img
+            src="/Hero.webp"
+            alt="Background"
+            width="1913"
+            height="999"
+            className="w-full h-full object-cover"
+          />
         </video>
 
         {/* Deep Blue Gradient Overlay */}
