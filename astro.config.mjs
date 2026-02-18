@@ -10,6 +10,9 @@ export default defineConfig({
     integrations: [react(), astroFont()],
     vite: {
         plugins: [tailwindcss()],
+        build: {
+            assetsInlineLimit: 8192,
+        },
     },
     i18n: {
         defaultLocale: "et",
