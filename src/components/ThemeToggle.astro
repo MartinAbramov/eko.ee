@@ -3,9 +3,8 @@ import { Sun, Moon } from 'lucide-react';
 ---
 
 <button
-  id="theme-toggle"
   type="button"
-  class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:focus:ring-slate-700 rounded-lg text-sm p-2.5"
+  class="theme-toggle text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:focus:ring-slate-700 rounded-lg text-sm p-2.5"
   aria-label="Toggle Dark Mode"
 >
   <span class="hidden dark:inline">
@@ -17,16 +16,18 @@ import { Sun, Moon } from 'lucide-react';
 </button>
 
 <script>
-  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeToggleBtns = document.querySelectorAll('.theme-toggle');
 
-  themeToggleBtn?.addEventListener('click', () => {
-    // toggle icons inside button
-    if (localStorage.getItem('color-theme') === 'dark') {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('color-theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('color-theme', 'dark');
-    }
+  themeToggleBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      // toggle icons inside button
+      if (localStorage.getItem('color-theme') === 'dark') {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
   });
 </script>
