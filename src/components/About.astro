@@ -2,7 +2,7 @@
 import { Content } from '../types';
 import { Image } from 'astro:assets';
 import engineImage from '../assets/engine.webp';
-import { Award, Truck, CalendarClock } from 'lucide-react';
+import { Award, Truck, CalendarClock } from 'lucide-astro';
 
 interface Props {
   content: Content['about'];
@@ -50,9 +50,7 @@ const { content } = Astro.props;
           <div
             class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-goodyear-gold"
           >
-            <Award
-              className="text-baltic-blue dark:text-goodyear-gold shrink-0"
-            />
+            <Award class="text-baltic-blue dark:text-goodyear-gold shrink-0" />
             <span
               class="font-semibold text-sm text-slate-800 dark:text-slate-200"
             >
@@ -62,9 +60,7 @@ const { content } = Astro.props;
           <div
             class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-baltic-blue"
           >
-            <Truck
-              className="text-baltic-blue dark:text-goodyear-gold shrink-0"
-            />
+            <Truck class="text-baltic-blue dark:text-goodyear-gold shrink-0" />
             <span
               class="font-semibold text-sm text-slate-800 dark:text-slate-200"
             >
@@ -75,7 +71,7 @@ const { content } = Astro.props;
             class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-eco-green"
           >
             <CalendarClock
-              className="text-baltic-blue dark:text-goodyear-gold shrink-0"
+              class="text-baltic-blue dark:text-goodyear-gold shrink-0"
             />
             <span
               class="font-semibold text-sm text-slate-800 dark:text-slate-200"

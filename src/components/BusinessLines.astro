@@ -3,7 +3,7 @@ import { Content } from '../types';
 import { Image } from 'astro:assets';
 import goodyearLogo from '../assets/icons/goodyear-lubricants.svg';
 import additivesImage from '../assets/additives.webp';
-import { Droplet, FlaskConical, CheckCircle2 } from 'lucide-react';
+import { Droplet, FlaskConical, CheckCircle2 } from 'lucide-astro';
 
 interface Props {
   content: Content['products'];
@@ -74,7 +74,7 @@ const { content } = Astro.props;
                 <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                   <CheckCircle2
                     size={20}
-                    className="text-goodyear-gold shrink-0 mt-0.5"
+                    class="text-goodyear-gold shrink-0 mt-0.5"
                   />
                   <span>{item}</span>
                 </li>
@@ -135,7 +135,7 @@ const { content } = Astro.props;
                 <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                   <CheckCircle2
                     size={20}
-                    className="text-eco-green shrink-0 mt-0.5"
+                    class="text-eco-green shrink-0 mt-0.5"
                   />
                   <span>{item}</span>
                 </li>

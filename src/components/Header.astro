@@ -1,5 +1,5 @@
 ---
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-astro';
 import { Language, Content } from '../types';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import Logo from './Logo.astro';
@@ -36,7 +36,7 @@ const { content, currentLang } = Astro.props;
         href={`tel:${PHONE_PRIMARY.replace(/\s/g, '')}`}
         class="flex items-center gap-2 bg-goodyear-gold text-baltic-blue px-4 py-2 rounded font-bold hover:bg-yellow-400 transition-colors whitespace-nowrap"
       >
-        <Phone size={16} className="shrink-0" />
+        <Phone size={16} class="shrink-0" />
         <span>{PHONE_PRIMARY}</span>
       </a>
     </nav>
