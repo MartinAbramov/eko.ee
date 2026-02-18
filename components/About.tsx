@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = ({ content }) => {
               <div className="absolute -top-4 -left-4 w-20 h-20 border-t-4 border-l-4 border-goodyear-gold rounded-tl-3xl"></div>
               <img
                 src="/engine.jpg"
-                className="rounded-lg shadow-lg w-full object-cover aspect-[4/3] grayscale hover:grayscale-0 transition-all duration-500"
+                className="rounded-lg shadow-lg w-full object-cover aspect-[4/3]"
               />
               <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-4 border-r-4 border-baltic-blue rounded-br-3xl"></div>
             </div>
