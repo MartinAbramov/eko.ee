@@ -1,36 +1,32 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header";
-import Hero from "../../components/Hero";
-import About from "../../components/About";
-import BusinessLines from "../../components/BusinessLines";
-import Contact from "../../components/Contact";
-import Footer from "../../components/Footer";
-import MobileStickyNav from "../../components/MobileStickyNav";
-import { ui } from "../../i18n/ui";
-import { Language } from "../../types";
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import BusinessLines from '../../components/BusinessLines.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import MobileStickyNav from '../../components/MobileStickyNav.astro';
+import { ui } from '../../i18n/ui';
+import { Language } from '../../types';
 
 export function getStaticPaths() {
   return [
-    { params: { lang: "et" }, props: { lang: "et" } },
-    { params: { lang: "en" }, props: { lang: "en" } },
-    { params: { lang: "ru" }, props: { lang: "ru" } },
+    { params: { lang: 'et' }, props: { lang: 'et' } },
+    { params: { lang: 'en' }, props: { lang: 'en' } },
+    { params: { lang: 'ru' }, props: { lang: 'ru' } },
   ];
 }
 
 const { lang } = Astro.props;
-const currentLang = lang;
+const currentLang = lang as Language;
 const content = ui[currentLang];
 
 const { title, description } = content.meta;
 ---
 
 <Layout title={title} description={description} lang={Astro.params.lang}>
-  <Header
-    content={content.nav}
-    currentLang={currentLang}
-    client:load
-  />
+  <Header content={content.nav} currentLang={currentLang} />
 
   <main>
     <Hero content={content.hero} />
@@ -41,5 +37,5 @@ const { title, description } = content.meta;
 
   <Footer content={content.footer} />
 
-  <MobileStickyNav content={content.contact} client:media="(max-width: 768px)" />
+  <MobileStickyNav content={content.contact} />
 </Layout>

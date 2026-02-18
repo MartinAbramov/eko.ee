@@ -1,0 +1,56 @@
+---
+import { Language } from '../types';
+
+interface Props {
+  currentLang: Language;
+  variant?: 'light' | 'dark';
+}
+
+const { currentLang, variant = 'light' } = Astro.props;
+
+const variants = {
+  light: {
+    text: 'text-slate-800',
+    activeText: 'text-baltic-blue font-bold',
+    hover: 'hover:text-baltic-blue',
+  },
+  dark: {
+    text: 'text-gray-400',
+    activeText: 'text-goodyear-gold font-bold',
+    hover: 'hover:text-white',
+  },
+};
+
+const v = variants[variant];
+---
+
+<div class="flex items-center space-x-1">
+  {
+    Object.values(Language).map((langCode, index, array) => {
+      // Map enum value (et) to display label (EST)
+      const label =
+        langCode === 'et' ? 'EST' : langCode === 'en' ? 'ENG' : 'RUS';
+      const isActive = currentLang === langCode;
+
+      return (
+        <>
+          <a
+            href={`/${langCode}`}
+            class={`px-2 py-1 transition-all duration-200 ${
+              isActive ? v.activeText : `${v.text} ${v.hover}`
+            } ${isActive ? 'scale-110' : ''}`}
+          >
+            {label}
+          </a>
+          {index < array.length - 1 && (
+            <span
+              class={`text-gray-300 ${variant === 'dark' ? 'opacity-30' : ''}`}
+            >
+              |
+            </span>
+          )}
+        </>
+      );
+    })
+  }
+</div>

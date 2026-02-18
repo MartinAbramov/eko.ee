@@ -1,0 +1,20 @@
+---
+import { Content } from '../types';
+
+interface Props {
+  content: Content['footer'];
+}
+
+const { content } = Astro.props;
+---
+
+<footer class="bg-baltic-blue text-white py-8">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center opacity-80">
+    <div class="mb-4 md:mb-0">
+      <span class="font-display font-bold">EKOIMPEX OÜ</span>
+    </div>
+    <div class="text-sm text-gray-300">
+      © {new Date().getFullYear()} {content.rights}
+    </div>
+  </div>
+</footer>

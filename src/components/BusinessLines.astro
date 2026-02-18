@@ -1,0 +1,139 @@
+---
+import { Content } from '../types';
+import { Droplet, FlaskConical, CheckCircle2 } from 'lucide-react';
+
+interface Props {
+  content: Content['products'];
+}
+
+const { content } = Astro.props;
+---
+
+<section id="products" class="py-20 bg-white">
+  <div class="container mx-auto px-4 mb-16 text-center">
+    <h2
+      class="text-3xl md:text-4xl font-display font-bold text-baltic-blue mb-4"
+    >
+      {content.title}
+    </h2>
+    <div class="h-1 w-24 bg-goodyear-gold mx-auto"></div>
+  </div>
+
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+      {/* Lubricants Column */}
+      <div
+        class="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300"
+      >
+        <a
+          href="https://goodyearoilbaltics.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block h-48 overflow-hidden relative cursor-pointer"
+        >
+          {/* Blue Overlay with Goodyear Logo */}
+          <div
+            class="absolute inset-0 bg-baltic-blue/90 z-10 flex flex-col items-center justify-center p-4"
+          >
+            <img
+              src="/icons/goodyear-lubricants.svg"
+              alt="Goodyear Lubricants"
+              width="1402"
+              height="322"
+              class="h-16 md:h-20 w-auto transform group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </a>
+
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 bg-blue-50 rounded-full text-baltic-blue">
+              <Droplet size={24} />
+            </div>
+            <h3 class="text-2xl font-bold text-baltic-blue font-display">
+              {content.lubricants.title}
+            </h3>
+          </div>
+
+          <p class="text-gray-600 mb-6 leading-relaxed min-h-[80px]">
+            {content.lubricants.description}
+          </p>
+
+          <ul class="space-y-3 mb-8">
+            {
+              content.lubricants.items.map((item) => (
+                <li class="flex items-center gap-3 text-slate-700">
+                  <CheckCircle2
+                    size={20}
+                    className="text-goodyear-gold shrink-0 mt-0.5"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            href="https://goodyearoilbaltics.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full text-center py-3 border-2 border-baltic-blue text-baltic-blue font-bold rounded hover:bg-baltic-blue hover:text-white transition-colors"
+          >
+            {content.lubricants.cta}
+          </a>
+        </div>
+      </div>
+
+      {/* Chemicals Column */}
+      <div
+        class="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300"
+      >
+        <div class="h-48 overflow-hidden relative">
+          <div class="absolute inset-0 z-10 flex items-center justify-center">
+          </div>
+          <img
+            src="/additives.webp"
+            alt="Chemicals"
+            loading="lazy"
+            width="1024"
+            height="572"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 bg-green-50 rounded-full text-eco-green">
+              <FlaskConical size={24} />
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 font-display">
+              {content.chemicals.title}
+            </h3>
+          </div>
+
+          <p class="text-gray-600 mb-6 leading-relaxed min-h-[230px]">
+            {content.chemicals.description}
+          </p>
+
+          <ul class="space-y-3 mb-8">
+            {
+              content.chemicals.items.map((item) => (
+                <li class="flex items-center gap-3 text-slate-700">
+                  <CheckCircle2 size={18} class="text-eco-green shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            href={`mailto:ekoimpex.info@gmail.com?subject=Request Spec: Chemicals`}
+            class="block w-full text-center py-3 border-2 border-eco-green text-eco-green font-bold rounded hover:bg-eco-green hover:text-white transition-colors"
+          >
+            {content.chemicals.cta}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

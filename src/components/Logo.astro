@@ -1,0 +1,16 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<img
+  src="/icons/logo.svg"
+  class={className}
+  alt="EKOIMPEX Logo"
+  width="1024"
+  height="890"
+  loading="eager"
+/>

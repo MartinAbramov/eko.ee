@@ -1,0 +1,121 @@
+---
+import { Content } from '../types';
+import { MapPin, Phone, Mail, Navigation } from 'lucide-react';
+import {
+  PHONE_PRIMARY,
+  PHONE_SECONDARY,
+  EMAIL_CONTACT,
+  ADDRESS_MAP_URL,
+  WAZE_LINK,
+} from '../constants';
+
+interface Props {
+  content: Content['contact'];
+}
+
+const { content } = Astro.props;
+---
+
+<section id="contact" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-baltic-blue mb-4">
+        {content.title}
+      </h2>
+      <div class="h-1 w-24 bg-eco-green mx-auto"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+      {/* Left Side: Contact Info Cards */}
+      <div class="lg:col-span-2 space-y-6">
+        {/* Address Card */}
+        <div class="bg-industrial-grey p-6 rounded-lg shadow-sm border-t-4 border-baltic-blue hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-blue-100 rounded-full text-baltic-blue">
+              <MapPin size={24} />
+            </div>
+            <div>
+              <h4 class="text-sm uppercase font-bold text-gray-500 mb-1">
+                {content.addressLabel}
+              </h4>
+              <p class="font-medium text-slate-800 text-lg leading-snug mb-4">
+                {content.address}
+              </p>
+              <a
+                href={WAZE_LINK}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-bold text-baltic-blue hover:text-eco-green transition-colors"
+              >
+                <Navigation size={16} />
+                {content.directions}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Phones Card */}
+        <div class="bg-industrial-grey p-6 rounded-lg shadow-sm border-t-4 border-goodyear-gold hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-yellow-100 rounded-full text-baltic-blue">
+              <Phone size={24} />
+            </div>
+            <div>
+              <h4 class="text-sm uppercase font-bold text-gray-500 mb-1">
+                {content.phoneLabel}
+              </h4>
+              <div class="flex flex-col gap-2">
+                <a
+                  href={`tel:${PHONE_PRIMARY.replace(/\s/g, '')}`}
+                  class="font-bold text-xl text-slate-800 hover:text-goodyear-gold transition-colors"
+                >
+                  {PHONE_PRIMARY}
+                </a>
+                <a
+                  href={`tel:${PHONE_SECONDARY.replace(/\s/g, '')}`}
+                  class="font-bold text-xl text-slate-800 hover:text-goodyear-gold transition-colors"
+                >
+                  {PHONE_SECONDARY}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Email Card */}
+        <div class="bg-industrial-grey p-6 rounded-lg shadow-sm border-t-4 border-eco-green hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-green-100 rounded-full text-eco-green">
+              <Mail size={24} />
+            </div>
+            <div>
+              <h4 class="text-sm uppercase font-bold text-gray-500 mb-1">
+                {content.emailLabel}
+              </h4>
+              <a
+                href={`mailto:${EMAIL_CONTACT}`}
+                class="font-medium text-lg text-slate-800 hover:text-eco-green transition-colors break-all"
+              >
+                {EMAIL_CONTACT}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Side: Map */}
+      <div class="lg:col-span-3 min-h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
+        <iframe
+          src={ADDRESS_MAP_URL}
+          width="100%"
+          height="100%"
+          style="border: 0; min-height: 400px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="EKOIMPEX Location"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
