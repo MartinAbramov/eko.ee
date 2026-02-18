@@ -127,18 +127,78 @@ const { content } = Astro.props;
 
       {/* Right Side: Map */}
       <div
-        class="lg:col-span-3 min-h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-slate-800"
+        id="map-container"
+        class="lg:col-span-3 min-h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-slate-800 relative bg-gray-100 dark:bg-slate-800 group"
       >
-        <iframe
-          src={ADDRESS_MAP_URL}
-          width="100%"
-          height="100%"
-          style="border: 0; min-height: 400px;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="EKOIMPEX Location"></iframe>
+        {/* Placeholder / Facade */}
+        <div
+          id="map-placeholder"
+          class="absolute inset-0 flex items-center justify-center cursor-pointer"
+        >
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 text-baltic-blue dark:text-goodyear-gold group-hover:scale-110 transition-transform duration-300"
+            >
+              <MapPin size={32} />
+            </div>
+            <p class="text-sm font-bold text-gray-500 dark:text-gray-400">
+              Loading Map...
+            </p>
+          </div>
+        </div>
+
+        {/* Template for the Iframe (not rendered initially) */}
+        <template id="map-template">
+          <iframe
+            src={ADDRESS_MAP_URL}
+            width="100%"
+            height="100%"
+            style="border: 0; min-height: 400px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="EKOIMPEX Location"></iframe>
+        </template>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Lazy Load Map Logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const mapContainer = document.getElementById('map-container');
+    const mapPlaceholder = document.getElementById('map-placeholder');
+    const mapTemplate = document.getElementById(
+      'map-template',
+    ) as HTMLTemplateElement;
+
+    if (mapContainer && mapTemplate) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // User scrolled near the map
+              const iframe = mapTemplate.content.cloneNode(true);
+              mapContainer.appendChild(iframe);
+
+              // Fade out placeholder
+              if (mapPlaceholder) {
+                mapPlaceholder.style.opacity = '0';
+                setTimeout(() => {
+                  mapPlaceholder.remove();
+                }, 300); // match transition if we added one, currently instant removal after append is fine too
+              }
+
+              // Stop observing
+              observer.disconnect();
+            }
+          });
+        },
+        { rootMargin: '200px' },
+      ); // Load 200px before it comes into view
+
+      observer.observe(mapContainer);
+    }
+  });
+</script>
