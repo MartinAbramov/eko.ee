@@ -17,8 +17,7 @@ export const translations: Record<Language, Content> = {
     },
     hero: {
       title: 'Esmaklassilised määrdeained ja tööstuskemikaalid',
-      subtitle:
-        'Ametlik Goodyeari partner Eestis. Logistiline täpsus Maardu südamest.',
+      subtitle: '',
       cta: 'Vaata tooteid',
     },
     products: {
@@ -44,7 +43,7 @@ export const translations: Record<Language, Content> = {
     about: {
       title: 'Logistiline Täpsus',
       description:
-        'Asume Maardu strateegilises tööstuspargis. EKOIMPEX pakub kiiret hulgikaupade ja pakendatud määrdeainete jaotust üle Harjumaa ja kogu Eesti.',
+        'EKOIMPEX tagab kvaliteetsete määrdeainete kiire ja tõhusa tarnimise.',
       stat1: 'Kontrollitud Tarnija',
       stat2: 'Reg. kood 17227481',
       stat3: 'Asutatud 2024',
@@ -98,7 +97,7 @@ export const translations: Record<Language, Content> = {
     about: {
       title: 'Logistics Precision',
       description:
-        'Situated in the strategic logistics hub of Maardu, EKOIMPEX provides rapid distribution of bulk chemicals and packaged lubricants across Harju County and Estonia.',
+        'EKOIMPEX ensures fast and efficient delivery of premium quality lubricants.',
       stat1: 'Verified Supplier',
       stat2: 'Reg. Code 17227481',
       stat3: 'Est. 2024',
@@ -125,8 +124,7 @@ export const translations: Record<Language, Content> = {
     },
     hero: {
       title: 'Премиальные смазочные материалы и промышленные химикаты',
-      subtitle:
-        'Официальный партнер Goodyear в Эстонии. Логистическая точность из центра Маарду.',
+      subtitle: '',
       cta: 'Смотреть продукты',
     },
     products: {
@@ -152,7 +150,7 @@ export const translations: Record<Language, Content> = {
     about: {
       title: 'Логистическая точность',
       description:
-        'Находясь в стратегическом логистическом хабе Маарду, EKOIMPEX обеспечивает быстрое распределение наливных химикатов и упакованных смазочных материалов.',
+        'EKOIMPEX обеспечивает быструю и эффективную доставку смазочных материалов высшего качества.',
       stat1: 'Проверенный поставщик',
       stat2: 'Рег. код 17227481',
       stat3: 'Осн. 2024',
