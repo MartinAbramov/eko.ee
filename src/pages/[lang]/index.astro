@@ -7,20 +7,20 @@ import BusinessLines from "../../components/BusinessLines";
 import Contact from "../../components/Contact";
 import Footer from "../../components/Footer";
 import MobileStickyNav from "../../components/MobileStickyNav";
-import { translations } from "../../constants";
+import { ui } from "../../i18n/ui";
 import { Language } from "../../types";
 
 export function getStaticPaths() {
   return [
-    { params: { lang: "et" }, props: { lang: Language.EST } },
-    { params: { lang: "en" }, props: { lang: Language.ENG } },
-    { params: { lang: "ru" }, props: { lang: Language.RUS } },
+    { params: { lang: "et" }, props: { lang: "et" } },
+    { params: { lang: "en" }, props: { lang: "en" } },
+    { params: { lang: "ru" }, props: { lang: "ru" } },
   ];
 }
 
 const { lang } = Astro.props;
 const currentLang = lang;
-const content = translations[currentLang];
+const content = ui[currentLang];
 
 const title = "EKOIMPEX - Industrial Strength. Logistics Precision.";
 const description = "EKOIMPEX - Premium määrdeained ja tööstuskemikaalid. Ametlik Goodyeari partner Eestis.";

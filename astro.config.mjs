@@ -8,4 +8,12 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
+    i18n: {
+        defaultLocale: "et",
+        locales: ["et", "en", "ru"],
+        routing: {
+            prefixDefaultLocale: true,
+            redirectToDefaultLocale: false
+        }
+    }
 });
