@@ -43,7 +43,7 @@ export const translations: Record<Language, Content> = {
     about: {
       title: 'Logistiline Täpsus',
       description:
-        'EKOIMPEX tagab kvaliteetsete määrdeainete kiire ja tõhusa tarnimise.',
+        'EKOIMPEX tagab kvaliteetsete määrdeainete kiire ja tõhusa tarnimise üle kogu Eesti.',
       stat1: 'Kontrollitud Tarnija',
       stat2: 'Reg. kood 17227481',
       stat3: 'Asutatud 2024',
@@ -70,8 +70,7 @@ export const translations: Record<Language, Content> = {
     },
     hero: {
       title: 'Premium Lubricants & Industrial Chemicals',
-      subtitle:
-        'Official Goodyear Partner in Estonia. Logistics precision from the Maardu hub.',
+      subtitle: '',
       cta: 'View Products',
     },
     products: {
@@ -88,18 +87,18 @@ export const translations: Record<Language, Content> = {
         cta: 'View Specs',
       },
       chemicals: {
-        title: 'Fuel Additives',
+        title: 'Fuel additives',
         description: '',
         items: [],
-        cta: 'Request Quote',
+        cta: 'Request quote',
       },
     },
     about: {
-      title: 'Logistics Precision',
+      title: 'Logistics precision',
       description:
-        'EKOIMPEX ensures fast and efficient delivery of premium quality lubricants.',
-      stat1: 'Verified Supplier',
-      stat2: 'Reg. Code 17227481',
+        'EKOIMPEX ensures fast and efficient delivery of premium quality lubricants across Estonia.',
+      stat1: 'Verified supplier',
+      stat2: 'Reg. code 17227481',
       stat3: 'Est. 2024',
     },
     contact: {
@@ -150,7 +149,7 @@ export const translations: Record<Language, Content> = {
     about: {
       title: 'Логистическая точность',
       description:
-        'EKOIMPEX обеспечивает быструю и эффективную доставку смазочных материалов высшего качества.',
+        'EKOIMPEX обеспечивает быструю и эффективную доставку смазочных материалов высшего качества по всей Эстонии.',
       stat1: 'Проверенный поставщик',
       stat2: 'Рег. код 17227481',
       stat3: 'Осн. 2024',
