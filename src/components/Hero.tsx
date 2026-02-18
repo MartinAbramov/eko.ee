@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1590456221798-25d260f7e47d?q=80&w=2834&auto=format&fit=crop"
+          poster="/Hero.jpg"
         >
           <source src="/Hero.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
