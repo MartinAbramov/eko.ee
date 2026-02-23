@@ -50,6 +50,13 @@ export interface Content {
     emailLabel: string;
     directions: string;
     call: string;
+    nameLabel: string;
+    messageLabel: string;
+    interestLabel: string;
+    optionLubricants: string;
+    optionAdditives: string;
+    optionOther: string;
+    sendButton: string;
   };
   footer: {
     rights: string;
