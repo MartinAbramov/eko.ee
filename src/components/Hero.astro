@@ -17,6 +17,7 @@ const { content } = Astro.props;
   {/* Background Video with Overlay */}
   <div class="absolute inset-0 z-0">
     <video
+      id="hero-video"
       autoplay
       muted
       loop
@@ -24,7 +25,6 @@ const { content } = Astro.props;
       class="w-full h-full object-cover"
       poster={heroImage.src}
     >
-      <source src="/Hero.webm" type="video/webm" />
     </video>
 
     {/* Deep Blue Gradient Overlay */}
@@ -56,3 +56,26 @@ const { content } = Astro.props;
   >
   </div>
 </section>
+
+<script>
+  const video = document.getElementById('hero-video') as HTMLVideoElement;
+  if (video) {
+    const now = new Date();
+    const month = now.getMonth();
+    const date = now.getDate();
+    // "Not winter" is defined as April 1st to December 1st inclusive
+    const isNotWinter = month >= 3 && month < 11;
+
+    const source = document.createElement('source');
+    if (isNotWinter) {
+      source.src = '/Summer.mp4';
+      source.type = 'video/mp4';
+    } else {
+      source.src = '/Hero.webm';
+      source.type = 'video/webm';
+    }
+
+    video.appendChild(source);
+    video.load();
+  }
+</script>
