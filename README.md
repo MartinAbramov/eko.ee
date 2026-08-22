@@ -12,7 +12,7 @@ A modern, multilingual website for EKOIMPEX, specializing in Goodyear lubricants
 - **Performance Optimized** – Fast loading times with inlined stylesheets and optimized assets
 - **Accessibility** – Built with semantic HTML and accessible component patterns
 - **SEO Friendly** – Proper meta tags, structured data, and clean URL structure
-- **Analytics** – Integrated Vercel Analytics and Speed Insights
+- **Analytics** – Google Analytics via gtag
 
 ## 🛠️ Tech Stack
 
@@ -21,8 +21,8 @@ A modern, multilingual website for EKOIMPEX, specializing in Goodyear lubricants
 - **Language:** [TypeScript](https://www.typescriptlang.org/) – Type-safe development
 - **Icons:** [Lucide Astro](https://github.com/lucide-icons/lucide-astro) – Beautiful icon library
 - **Fonts:** [Fontsource](https://fontsource.org/) – Self-hosted web fonts (Inter, Montserrat)
-- **Analytics:** [Vercel Analytics](https://vercel.com/analytics) & [Speed Insights](https://vercel.com/speed-insights)
-- **Deployment:** [GitHub Pages](https://pages.github.com/)
+- **Analytics:** Google Analytics (gtag)
+- **Deployment:** [GitHub Pages](https://pages.github.com/) via GitHub Actions
 
 ## 📦 Development Setup
 
@@ -66,10 +66,9 @@ npm run build
 
 # Preview production build locally
 npm run preview
-
-# Deploy to GitHub Pages
-npm run deploy
 ```
+
+Deployment to GitHub Pages happens automatically via GitHub Actions on every push to `main` (see [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
 
 ## 📁 Project Structure
 
@@ -117,6 +116,7 @@ URLs are prefixed with the language code (e.g., `/et/`, `/en/`, `/ru/`). The sit
 ### Colors & Theme
 
 Colors are defined in Tailwind config and can be customized:
+
 - `goodyear-gold` – Primary brand color
 - `baltic-blue` – Secondary accent color
 - `industrial-grey` – Background color
