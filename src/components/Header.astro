@@ -1,5 +1,5 @@
 ---
-import { Menu, X, Phone } from 'lucide-astro';
+import { Menu, X, Phone, ArrowRight } from 'lucide-astro';
 import { Language, Content } from '../types';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import Logo from './Logo.astro';
@@ -9,23 +9,49 @@ import { PHONE_PRIMARY } from '../constants';
 interface Props {
   content: Content['nav'];
   currentLang: Language;
+  solid?: boolean;
 }
 
-const { content, currentLang } = Astro.props;
+const { content, currentLang, solid = false } = Astro.props;
+const homeHref = `/${currentLang}/`;
+const partnerHref = `/${currentLang}/partner`;
 ---
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-4"
+  data-solid={solid ? 'true' : 'false'}
+  class:list={[
+    'group fixed top-0 left-0 w-full z-50 transition-all duration-300',
+    solid
+      ? 'bg-white dark:bg-slate-900 shadow-md py-2'
+      : 'bg-transparent py-4',
+  ]}
 >
-  <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+  <div class="container mx-auto px-4 md:px-6 flex justify-between items-center gap-4">
     {/* Logo */}
-    <div id="logo-container" class="cursor-pointer block bg-white">
+    <a
+      id="logo-link"
+      href={homeHref}
+      class="cursor-pointer block bg-white shrink-0"
+      data-home-href={homeHref}
+    >
       <Logo class="md:h-16 w-auto" />
-    </div>
+    </a>
 
     {/* Desktop Nav */}
-    <nav class="hidden md:flex items-center space-x-6">
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href={`${homeHref}#about`} class="site-nav-link">
+        {content.about}
+      </a>
+      <a href={`${homeHref}#products`} class="site-nav-link">
+        {content.products}
+      </a>
+      <a href={`${homeHref}#contact`} class="site-nav-link">
+        {content.contact}
+      </a>
+    </nav>
+
+    <div class="hidden lg:flex items-center gap-5">
       <div id="lang-switcher-desktop">
         <LanguageSwitcher currentLang={currentLang} variant="light" />
       </div>
@@ -33,20 +59,32 @@ const { content, currentLang } = Astro.props;
       <ThemeToggle />
 
       <a
+        href={partnerHref}
+        class="border-2 border-goodyear-gold bg-goodyear-gold/10 text-goodyear-gold group-[.bg-white]:bg-goodyear-gold group-[.bg-white]:text-baltic-blue dark:group-[.bg-white]:bg-goodyear-gold dark:group-[.bg-white]:text-baltic-blue px-4 py-2 rounded font-bold hover:bg-goodyear-gold hover:text-baltic-blue transition-colors whitespace-nowrap inline-flex items-center gap-2"
+      >
+        {content.partner}
+        <ArrowRight size={16} />
+      </a>
+
+      <a
         href={`tel:${PHONE_PRIMARY.replace(/\s/g, '')}`}
         class="flex items-center gap-2 bg-goodyear-gold text-baltic-blue px-4 py-2 rounded font-bold hover:bg-yellow-400 transition-colors whitespace-nowrap"
       >
         <Phone size={16} class="shrink-0" />
-        <span>{PHONE_PRIMARY}</span>
+        <span class="hidden xl:inline">{PHONE_PRIMARY}</span>
       </a>
-    </nav>
+    </div>
 
     {/* Mobile Menu Toggle */}
-    <div class="md:hidden flex items-center gap-4">
+    <div class="lg:hidden flex items-center gap-4">
       <div id="lang-switcher-mobile-header" class="hidden">
         <LanguageSwitcher currentLang={currentLang} />
       </div>
-      <button id="mobile-menu-btn" class="text-white" aria-label="Toggle menu">
+      <button
+        id="mobile-menu-btn"
+        class={solid ? 'text-baltic-blue dark:text-white' : 'text-white'}
+        aria-label="Toggle menu"
+      >
         <div id="icon-menu">
           <Menu size={28} />
         </div>
@@ -60,26 +98,33 @@ const { content, currentLang } = Astro.props;
   {/* Mobile Menu Overlay */}
   <div
     id="mobile-menu-overlay"
-    class="absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-xl border-t border-gray-100 dark:border-gray-800 md:hidden flex-col p-6 space-y-4 animate-fade-in-down hidden"
+    class="absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-xl border-t border-gray-100 dark:border-gray-800 lg:hidden flex-col p-6 space-y-4 animate-fade-in-down hidden"
   >
-    <button
-      data-scroll-to="about"
-      class="text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
+    <a
+      href={`${homeHref}#about`}
+      class="block text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
     >
       {content.about}
-    </button>
-    <button
-      data-scroll-to="products"
-      class="text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
+    </a>
+    <a
+      href={`${homeHref}#products`}
+      class="block text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
     >
       {content.products}
-    </button>
-    <button
-      data-scroll-to="contact"
-      class="text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
+    </a>
+    <a
+      href={`${homeHref}#contact`}
+      class="block text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
     >
       {content.contact}
-    </button>
+    </a>
+    <a
+      href={partnerHref}
+      class="flex items-center justify-center gap-2 text-center text-lg font-bold text-baltic-blue dark:text-baltic-blue bg-goodyear-gold hover:bg-yellow-400 py-3 rounded w-full"
+    >
+      {content.partner}
+      <ArrowRight size={20} />
+    </a>
     <div class="pt-2 flex justify-between items-center">
       <span class="text-sm text-gray-500 dark:text-gray-400">Language:</span>
       <LanguageSwitcher currentLang={currentLang} variant="light" />
@@ -111,8 +156,10 @@ const { content, currentLang } = Astro.props;
   // OR just assume "light" means white text and "dark" means dark text, and toggle classes on scroll.
 
   // Let's go with toggling classes on the header element for state: .scrolled
+  const isSolidHeader = header?.dataset.solid === 'true';
+
   function updateHeaderState() {
-    const isScrolled = window.scrollY > 20;
+    const isScrolled = isSolidHeader || window.scrollY > 20;
 
     if (isScrolled) {
       header?.classList.add(
@@ -189,27 +236,24 @@ const { content, currentLang } = Astro.props;
   // Scroll Listeners
   window.addEventListener('scroll', updateHeaderState);
 
-  // Smooth Scroll
-  document.querySelectorAll('[data-scroll-to]').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const targetId = (e.currentTarget as HTMLElement).dataset.scrollTo;
-      const target = document.getElementById(targetId as string);
-      if (target) {
-        // Close menu
-        isMenuOpen = false;
-        menuOverlay?.classList.add('hidden');
-        menuOverlay?.classList.remove('flex');
-        iconMenu?.classList.remove('hidden');
-        iconClose?.classList.add('hidden');
-
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+  document.querySelectorAll('#mobile-menu-overlay a').forEach((link) => {
+    link.addEventListener('click', () => {
+      isMenuOpen = false;
+      menuOverlay?.classList.add('hidden');
+      menuOverlay?.classList.remove('flex');
+      iconMenu?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
     });
   });
 
-  // Logo Scroll to Top
-  document.getElementById('logo-container')?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const logoLink = document.getElementById('logo-link') as HTMLAnchorElement | null;
+  logoLink?.addEventListener('click', (e) => {
+    const home = logoLink.dataset.homeHref;
+    const path = window.location.pathname.replace(/\/$/, '') + '/';
+    if (home && path === home) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   });
 
   // Initial Check
@@ -252,5 +296,28 @@ const { content, currentLang } = Astro.props;
   }
   :global(#main-header.dark\:bg-slate-900 #lang-switcher-desktop span) {
     color: #475569; /* slate-600 */
+  }
+
+  :global(#main-header .site-nav-link) {
+    font-weight: 600;
+    white-space: nowrap;
+    color: white;
+    transition: color 0.2s ease;
+  }
+  :global(#main-header .site-nav-link:hover) {
+    color: #ffd100;
+  }
+  :global(#main-header.bg-white .site-nav-link) {
+    color: #002b49;
+  }
+  :global(#main-header.bg-white .site-nav-link:hover) {
+    color: #d4af00;
+  }
+  :global(html.dark #main-header.bg-white .site-nav-link),
+  :global(html.dark #main-header.dark\:bg-slate-900 .site-nav-link) {
+    color: #f1f5f9;
+  }
+  :global(html.dark #main-header .site-nav-link:hover) {
+    color: #ffd100;
   }
 </style>

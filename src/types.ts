@@ -9,6 +9,7 @@ export interface Content {
     about: string;
     products: string;
     contact: string;
+    partner: string;
     callAction: string;
   };
   meta: {
@@ -19,6 +20,7 @@ export interface Content {
     title: string;
     subtitle: string;
     cta: string;
+    partnerCta: string;
   };
   products: {
     title: string;
@@ -38,9 +40,33 @@ export interface Content {
   about: {
     title: string;
     description: string;
-    stat1: string;
-    stat2: string;
-    stat3: string;
+    details: string;
+    partnerCta: string;
+  };
+  partner: {
+    metaTitle: string;
+    metaDescription: string;
+    title: string;
+    benefitsTitle: string;
+    benefits: string[];
+    formTitle: string;
+    firstNameLabel: string;
+    lastNameLabel: string;
+    emailLabel: string;
+    phoneLabel: string;
+    companyLabel: string;
+    regCodeLabel: string;
+    vatLabel: string;
+    websiteLabel: string;
+    cityLabel: string;
+    interestLabel: string;
+    optionLubricants: string;
+    optionAdditives: string;
+    optionBoth: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sendButton: string;
+    privacyNote: string;
   };
   contact: {
     title: string;
@@ -57,8 +83,11 @@ export interface Content {
     optionAdditives: string;
     optionOther: string;
     sendButton: string;
+    partnerCta: string;
+    instagramLabel: string;
   };
   footer: {
     rights: string;
+    partner: string;
   };
 }

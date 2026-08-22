@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PartnerForm from '../../components/PartnerForm.astro';
+import MobileStickyNav from '../../components/MobileStickyNav.astro';
+import { ui } from '../../i18n/ui';
+import { Language } from '../../types';
+import { CheckCircle2 } from 'lucide-astro';
+import { Image } from 'astro:assets';
+import partnerHero from '../../assets/partner-hero.png';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'et' }, props: { lang: 'et' } },
+    { params: { lang: 'en' }, props: { lang: 'en' } },
+    { params: { lang: 'ru' }, props: { lang: 'ru' } },
+  ];
+}
+
+const { lang } = Astro.props;
+const currentLang = lang as Language;
+const content = ui[currentLang];
+const partner = content.partner;
+---
+
+<Layout
+  title={partner.metaTitle}
+  description={partner.metaDescription}
+  lang={Astro.params.lang}
+>
+  <Header content={content.nav} currentLang={currentLang} />
+
+  <main class="bg-industrial-grey dark:bg-slate-950 min-h-screen">
+    <section
+      class="relative min-h-[420px] md:min-h-[520px] w-full overflow-hidden flex items-center"
+    >
+      <div class="absolute inset-0 z-0">
+        <Image
+          src={partnerHero}
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover object-[70%_center]"
+        />
+        <div class="absolute inset-0 bg-hero-gradient"></div>
+      </div>
+
+      <div class="container mx-auto px-4 relative z-10 pt-28 pb-16">
+        <div class="max-w-4xl">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight"
+          >
+            {partner.title}
+          </h1>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-goodyear-gold via-eco-green to-baltic-blue"
+      >
+      </div>
+    </section>
+
+    <div class="container mx-auto px-4 max-w-7xl py-20">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <div class="h-1 w-16 bg-goodyear-gold mb-6"></div>
+          <h2
+            class="text-2xl md:text-3xl font-display font-bold text-baltic-blue dark:text-white mb-6"
+          >
+            {partner.benefitsTitle}
+          </h2>
+          <ul class="space-y-5">
+            {
+              partner.benefits.map((item) => (
+                <li class="flex items-start gap-4 text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
+                  <CheckCircle2
+                    size={28}
+                    class="text-goodyear-gold shrink-0 mt-0.5"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <PartnerForm content={partner} lang={currentLang} />
+      </div>
+    </div>
+  </main>
+
+  <Footer content={content.footer} currentLang={currentLang} />
+  <MobileStickyNav content={content.contact} />
+</Layout>

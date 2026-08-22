@@ -5,9 +5,10 @@ import { Content } from '../types';
 
 interface Props {
   content: Content['hero'];
+  partnerHref: string;
 }
 
-const { content } = Astro.props;
+const { content, partnerHref } = Astro.props;
 ---
 
 <section
@@ -32,7 +33,7 @@ const { content } = Astro.props;
   </div>
 
   <div class="container mx-auto px-4 relative z-10 pt-20">
-    <div class="max-w-3xl">
+        <div class="max-w-4xl">
       <h1
         class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6"
       >
@@ -44,6 +45,13 @@ const { content } = Astro.props;
           class="bg-goodyear-gold text-baltic-blue hover:bg-yellow-400 px-8 py-4 rounded font-bold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
         >
           {content.cta}
+          <ArrowRight size={20} />
+        </a>
+        <a
+          href={partnerHref}
+          class="border-2 border-white text-white hover:bg-white hover:text-baltic-blue px-8 py-4 rounded font-bold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+        >
+          {content.partnerCta}
           <ArrowRight size={20} />
         </a>
       </div>

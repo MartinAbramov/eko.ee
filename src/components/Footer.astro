@@ -1,17 +1,39 @@
 ---
-import { Content } from '../types';
+import { Content, Language } from '../types';
+import { Instagram } from 'lucide-astro';
+import { INSTAGRAM_URL } from '../constants';
 
 interface Props {
   content: Content['footer'];
+  currentLang: Language;
 }
 
-const { content } = Astro.props;
+const { content, currentLang } = Astro.props;
 ---
 
 <footer class="bg-baltic-blue text-white py-8">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center opacity-80">
-    <div class="mb-4 md:mb-0">
+  <div
+    class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 opacity-80"
+  >
+    <div>
       <span class="font-display font-bold">EKOIMPEX OÜ</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <a
+        href={`/${currentLang}/partner`}
+        class="text-sm font-medium text-white hover:text-goodyear-gold transition-colors"
+      >
+        {content.partner}
+      </a>
+      <a
+        href={INSTAGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white hover:text-goodyear-gold transition-colors"
+        aria-label="Instagram"
+      >
+        <Instagram size={22} />
+      </a>
     </div>
     <div class="text-sm text-gray-300">
       © {new Date().getFullYear()} {content.rights}

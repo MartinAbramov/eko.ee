@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { currentLang, variant = 'light' } = Astro.props;
+const pathSuffix = Astro.url.pathname.replace(/^\/(et|en|ru)/, '');
 
 const variants = {
   light: {
@@ -35,7 +36,7 @@ const v = variants[variant];
       return (
         <>
           <a
-            href={`/${langCode}`}
+            href={`/${langCode}${pathSuffix}`}
             class={`px-2 py-1 transition-all duration-200 ${
               isActive ? v.activeText : `${v.text} ${v.hover}`
             } ${isActive ? 'scale-110' : ''}`}

@@ -22,11 +22,11 @@ const { content } = Astro.props;
     <div class="h-1 w-24 bg-goodyear-gold mx-auto"></div>
   </div>
 
-  <div class="container mx-auto px-4 max-w-6xl">
+  <div class="container mx-auto px-4 max-w-7xl">
     <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
       {/* Lubricants Column */}
       <div
-        class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-300"
+        class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col"
       >
         <a
           href="https://goodyearoilbaltics.com/"
@@ -48,7 +48,7 @@ const { content } = Astro.props;
           </div>
         </a>
 
-        <div class="p-8">
+        <div class="p-8 flex flex-col flex-1">
           <div class="flex items-center gap-3 mb-4">
             <div
               class="p-3 bg-blue-50 dark:bg-slate-700 rounded-full text-baltic-blue dark:text-goodyear-gold"
@@ -62,9 +62,7 @@ const { content } = Astro.props;
             </h3>
           </div>
 
-          <p
-            class="text-gray-600 dark:text-slate-300 mb-6 leading-relaxed min-h-[80px]"
-          >
+          <p class="text-gray-600 dark:text-slate-300 mb-6 leading-relaxed">
             {content.lubricants.description}
           </p>
 
@@ -86,7 +84,7 @@ const { content } = Astro.props;
             href="https://goodyearoilbaltics.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="block w-full text-center py-3 border-2 border-baltic-blue dark:border-goodyear-gold text-baltic-blue dark:text-goodyear-gold font-bold rounded hover:bg-baltic-blue hover:text-white dark:hover:bg-goodyear-gold dark:hover:text-baltic-blue transition-colors"
+            class="mt-auto block w-full text-center py-3 border-2 border-baltic-blue dark:border-goodyear-gold text-baltic-blue dark:text-goodyear-gold font-bold rounded hover:bg-baltic-blue hover:text-white dark:hover:bg-goodyear-gold dark:hover:text-baltic-blue transition-colors"
           >
             {content.lubricants.cta}
           </a>
@@ -95,7 +93,7 @@ const { content } = Astro.props;
 
       {/* Chemicals Column */}
       <div
-        class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-300"
+        class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col"
       >
         <div class="h-48 overflow-hidden relative">
           <div class="absolute inset-0 z-10 flex items-center justify-center">
@@ -109,7 +107,7 @@ const { content } = Astro.props;
           />
         </div>
 
-        <div class="p-8">
+        <div class="p-8 flex flex-col flex-1">
           <div class="flex items-center gap-3 mb-4">
             <div
               class="p-3 bg-green-50 dark:bg-slate-700 rounded-full text-eco-green"
@@ -123,9 +121,7 @@ const { content } = Astro.props;
             </h3>
           </div>
 
-          <p
-            class="text-gray-600 dark:text-slate-300 mb-6 leading-relaxed min-h-[80px]"
-          >
+          <p class="text-gray-600 dark:text-slate-300 mb-6 leading-relaxed">
             {content.chemicals.description}
           </p>
 
@@ -145,7 +141,7 @@ const { content } = Astro.props;
 
           <a
             href={`mailto:ekoimpex.info@gmail.com?subject=Request Spec: Chemicals`}
-            class="block w-full text-center py-3 border-2 border-eco-green text-eco-green font-bold rounded hover:bg-eco-green hover:text-white transition-colors"
+            class="mt-auto block w-full text-center py-3 border-2 border-eco-green text-eco-green font-bold rounded hover:bg-eco-green hover:text-white transition-colors"
           >
             {content.chemicals.cta}
           </a>

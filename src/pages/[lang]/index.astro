@@ -29,13 +29,22 @@ const { title, description } = content.meta;
   <Header content={content.nav} currentLang={currentLang} />
 
   <main>
-    <Hero content={content.hero} />
-    <About content={content.about} />
+    <Hero
+      content={content.hero}
+      partnerHref={`/${currentLang}/partner`}
+    />
+    <About
+      content={content.about}
+      partnerHref={`/${currentLang}/partner`}
+    />
     <BusinessLines content={content.products} />
-    <Contact content={content.contact} />
+    <Contact
+      content={content.contact}
+      partnerHref={`/${currentLang}/partner`}
+    />
   </main>
 
-  <Footer content={content.footer} />
+  <Footer content={content.footer} currentLang={currentLang} />
 
   <MobileStickyNav content={content.contact} />
 </Layout>

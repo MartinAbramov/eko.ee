@@ -1,18 +1,19 @@
 ---
 import { Content } from '../types';
 import { Image } from 'astro:assets';
-import engineImage from '../assets/engine.webp';
-import { Award, Truck, CalendarClock } from 'lucide-astro';
+import goodyearProducts from '../assets/goodyear-products.png';
+import { ArrowRight } from 'lucide-astro';
 
 interface Props {
   content: Content['about'];
+  partnerHref: string;
 }
 
-const { content } = Astro.props;
+const { content, partnerHref } = Astro.props;
 ---
 
 <section id="about" class="py-20 bg-industrial-grey dark:bg-slate-950">
-  <div class="container mx-auto px-4 max-w-5xl">
+  <div class="container mx-auto px-4 max-w-7xl">
     <div class="flex flex-col md:flex-row items-center gap-12">
       <div class="w-full md:w-1/2">
         <div class="relative">
@@ -21,11 +22,11 @@ const { content } = Astro.props;
           >
           </div>
           <Image
-            src={engineImage}
-            alt="Industrial Engine"
-            width={1024}
-            height={559}
-            class="rounded-lg shadow-lg w-full object-cover aspect-[4/3]"
+            src={goodyearProducts}
+            alt="Goodyear Lubricants"
+            width={1600}
+            height={900}
+            class="rounded-lg shadow-lg w-full h-auto"
           />
           <div
             class="absolute -bottom-4 -right-4 w-20 h-20 border-b-4 border-r-4 border-baltic-blue rounded-br-3xl"
@@ -35,51 +36,27 @@ const { content } = Astro.props;
       </div>
 
       <div class="w-full md:w-1/2">
+        <div class="h-1 w-16 bg-goodyear-gold mb-6"></div>
         <h2
           class="text-3xl font-display font-bold text-baltic-blue dark:text-white mb-6"
         >
           {content.title}
         </h2>
         <p
-          class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8"
+          class="text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed mb-4"
         >
           {content.description}
         </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div
-            class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-goodyear-gold"
-          >
-            <Award class="text-baltic-blue dark:text-goodyear-gold shrink-0" />
-            <span
-              class="font-semibold text-sm text-slate-800 dark:text-slate-200"
-            >
-              {content.stat1}
-            </span>
-          </div>
-          <div
-            class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-baltic-blue"
-          >
-            <Truck class="text-baltic-blue dark:text-goodyear-gold shrink-0" />
-            <span
-              class="font-semibold text-sm text-slate-800 dark:text-slate-200"
-            >
-              {content.stat2}
-            </span>
-          </div>
-          <div
-            class="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 rounded shadow-sm border-l-4 border-eco-green"
-          >
-            <CalendarClock
-              class="text-baltic-blue dark:text-goodyear-gold shrink-0"
-            />
-            <span
-              class="font-semibold text-sm text-slate-800 dark:text-slate-200"
-            >
-              {content.stat3}
-            </span>
-          </div>
-        </div>
+        <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
+          {content.details}
+        </p>
+        <a
+          href={partnerHref}
+          class="inline-flex items-center justify-center gap-2 bg-goodyear-gold text-baltic-blue hover:bg-yellow-400 px-8 py-4 rounded font-bold text-lg transition-colors"
+        >
+          {content.partnerCta}
+          <ArrowRight size={20} class="shrink-0" />
+        </a>
       </div>
     </div>
   </div>
