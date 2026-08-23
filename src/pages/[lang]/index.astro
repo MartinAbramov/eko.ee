@@ -6,7 +6,6 @@ import About from '../../components/About.astro';
 import BusinessLines from '../../components/BusinessLines.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
-import MobileStickyNav from '../../components/MobileStickyNav.astro';
 import { ui } from '../../i18n/ui';
 import { Language } from '../../types';
 
@@ -45,6 +44,4 @@ const { title, description } = content.meta;
   </main>
 
   <Footer content={content.footer} currentLang={currentLang} />
-
-  <MobileStickyNav content={content.contact} />
 </Layout>

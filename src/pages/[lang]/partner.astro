@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PartnerForm from '../../components/PartnerForm.astro';
-import MobileStickyNav from '../../components/MobileStickyNav.astro';
 import { ui } from '../../i18n/ui';
 import { Language } from '../../types';
 import { CheckCircle2 } from 'lucide-astro';
@@ -90,5 +89,4 @@ const partner = content.partner;
   </main>
 
   <Footer content={content.footer} currentLang={currentLang} />
-  <MobileStickyNav content={content.contact} />
 </Layout>
