@@ -38,11 +38,11 @@ const { title, description } = content.meta;
       partnerHref={`/${currentLang}/partner`}
     />
     <BusinessLines content={content.products} />
-    <Partners content={content.partners} />
-    <Contact
-      content={content.contact}
+    <Partners
+      content={content.partners}
       partnerHref={`/${currentLang}/partner`}
     />
+    <Contact content={content.contact} />
   </main>
 
   <Footer content={content.footer} currentLang={currentLang} />

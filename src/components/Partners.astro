@@ -1,13 +1,14 @@
 ---
 import { Content } from '../types';
 import { BUSINESS_PARTNERS } from '../constants';
-import { MapPin } from 'lucide-astro';
+import { MapPin, ArrowRight } from 'lucide-astro';
 
 interface Props {
   content: Content['partners'];
+  partnerHref: string;
 }
 
-const { content } = Astro.props;
+const { content, partnerHref } = Astro.props;
 ---
 
 <section id="partners" class="py-20 bg-industrial-grey dark:bg-slate-950">
@@ -38,6 +39,16 @@ const { content } = Astro.props;
           </div>
         ))
       }
+    </div>
+
+    <div class="mt-12 flex justify-center">
+      <a
+        href={partnerHref}
+        class="inline-flex items-center justify-center gap-2 bg-goodyear-gold text-baltic-blue hover:bg-yellow-400 px-8 py-4 rounded font-bold text-lg transition-colors"
+      >
+        {content.partnerCta}
+        <ArrowRight size={20} class="shrink-0" />
+      </a>
     </div>
   </div>
 </section>

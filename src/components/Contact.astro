@@ -1,6 +1,6 @@
 ---
 import { Content } from '../types';
-import { MapPin, Phone, Mail, Navigation, Instagram, ChevronDown, ArrowRight } from 'lucide-astro';
+import { MapPin, Phone, Mail, Navigation, Instagram, ChevronDown } from 'lucide-astro';
 import {
   PHONE_PRIMARY,
   PHONE_SECONDARY,
@@ -13,10 +13,9 @@ import {
 
 interface Props {
   content: Content['contact'];
-  partnerHref: string;
 }
 
-const { content, partnerHref } = Astro.props;
+const { content } = Astro.props;
 ---
 
 <section id="contact" class="py-20 bg-industrial-grey dark:bg-slate-950">
@@ -164,13 +163,11 @@ const { content, partnerHref } = Astro.props;
             <div
               class="bg-white dark:bg-slate-900 p-8 rounded-lg shadow-md border-t-4 border-baltic-blue h-full"
             >
-              <a
-                href={partnerHref}
-                class="mb-6 flex items-center justify-center gap-2 p-4 rounded-md bg-industrial-grey dark:bg-slate-800 border border-goodyear-gold hover:bg-goodyear-gold/10 transition-colors font-bold text-baltic-blue dark:text-goodyear-gold"
+              <p
+                class="mb-6 text-lg text-slate-700 dark:text-white leading-relaxed"
               >
-                {content.partnerCta}
-                <ArrowRight size={18} />
-              </a>
+                {content.formIntro}
+              </p>
               <form
                 action={FORMSPREE_URL}
                 method="POST"

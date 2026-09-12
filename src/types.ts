@@ -71,6 +71,7 @@ export interface Content {
   };
   partners: {
     title: string;
+    partnerCta: string;
   };
   contact: {
     title: string;
@@ -87,7 +88,7 @@ export interface Content {
     optionAdditives: string;
     optionOther: string;
     sendButton: string;
-    partnerCta: string;
+    formIntro: string;
     instagramLabel: string;
   };
   footer: {

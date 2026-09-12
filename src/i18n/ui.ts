@@ -92,6 +92,7 @@ export const ui: Record<string, Content> = {
     },
     partners: {
       title: 'Meie partnerid',
+      partnerCta: 'Hakka partneriks',
     },
     contact: {
       title: 'Kontakt',
@@ -108,7 +109,8 @@ export const ui: Record<string, Content> = {
       optionAdditives: 'Kütuselisandid',
       optionOther: 'Muu',
       sendButton: 'Saada sõnum',
-      partnerCta: 'Hakka partneriks',
+      formIntro:
+        'Kirjutage meile — vastame küsimustele ja aitame valida sobivad tooted.',
       instagramLabel: 'Instagram',
     },
     footer: {
@@ -198,6 +200,7 @@ export const ui: Record<string, Content> = {
     },
     partners: {
       title: 'Our partners',
+      partnerCta: 'Become a partner',
     },
     contact: {
       title: 'Contact Us',
@@ -214,7 +217,8 @@ export const ui: Record<string, Content> = {
       optionAdditives: 'Fuel Additives',
       optionOther: 'Other',
       sendButton: 'Send Message',
-      partnerCta: 'Become a partner',
+      formIntro:
+        'Get in touch — we’ll answer your questions and help you find the right products.',
       instagramLabel: 'Instagram',
     },
     footer: {
@@ -306,6 +310,7 @@ export const ui: Record<string, Content> = {
     },
     partners: {
       title: 'Наши партнёры',
+      partnerCta: 'Стать партнёром',
     },
     contact: {
       title: 'Контакты',
@@ -322,7 +327,8 @@ export const ui: Record<string, Content> = {
       optionAdditives: 'Присадки к топливу',
       optionOther: 'Другое',
       sendButton: 'Отправить сообщение',
-      partnerCta: 'Стать партнёром',
+      formIntro:
+        'Свяжитесь с нами, чтобы узнать больше. Ответим на вопросы и поможем подобрать продукцию.',
       instagramLabel: 'Instagram',
     },
     footer: {
