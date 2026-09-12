@@ -13,6 +13,7 @@ export const ui: Record<string, Content> = {
     nav: {
       about: 'Ettevõttest',
       products: 'Tooted',
+      partners: 'Meie partnerid',
       contact: 'Kontakt',
       partner: 'Hakka partneriks',
       callAction: 'Helista',
@@ -89,6 +90,9 @@ export const ui: Record<string, Content> = {
       privacyNote:
         'Kasutame teie andmeid ainult selleks, et partnerlusest rääkida.',
     },
+    partners: {
+      title: 'Meie partnerid',
+    },
     contact: {
       title: 'Kontakt',
       addressLabel: 'Aadress',
@@ -116,6 +120,7 @@ export const ui: Record<string, Content> = {
     nav: {
       about: 'About Us',
       products: 'Products',
+      partners: 'Our partners',
       contact: 'Contact',
       partner: 'Become a partner',
       callAction: 'Call Now',
@@ -191,6 +196,9 @@ export const ui: Record<string, Content> = {
       sendButton: 'Send application',
       privacyNote: 'We will use your details only to discuss a partnership.',
     },
+    partners: {
+      title: 'Our partners',
+    },
     contact: {
       title: 'Contact Us',
       addressLabel: 'Address',
@@ -218,6 +226,7 @@ export const ui: Record<string, Content> = {
     nav: {
       about: 'О компании',
       products: 'Продукты',
+      partners: 'Наши партнёры',
       contact: 'Контакты',
       partner: 'Стать партнёром',
       callAction: 'Позвонить',
@@ -294,6 +303,9 @@ export const ui: Record<string, Content> = {
       sendButton: 'Отправить заявку',
       privacyNote:
         'Мы используем ваши данные только для обсуждения партнёрства.',
+    },
+    partners: {
+      title: 'Наши партнёры',
     },
     contact: {
       title: 'Контакты',

@@ -8,6 +8,7 @@ export interface Content {
   nav: {
     about: string;
     products: string;
+    partners: string;
     contact: string;
     partner: string;
     callAction: string;
@@ -67,6 +68,9 @@ export interface Content {
     messagePlaceholder: string;
     sendButton: string;
     privacyNote: string;
+  };
+  partners: {
+    title: string;
   };
   contact: {
     title: string;

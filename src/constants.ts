@@ -7,4 +7,17 @@ export const WAZE_LINK = 'https://waze.com/ul?q=Fosforiidi+tn+4+Maardu';
 export const FORMSPREE_URL = 'https://formspree.io/f/mpqjopbq';
 export const INSTAGRAM_URL = 'https://www.instagram.com/goodyearlubricants/';
 
+export const BUSINESS_PARTNERS = [
+  { name: 'OKAUTO VARUOSAD OÜ', address: 'Kopli 27, Tallinn' },
+  { name: 'OÜ AUTOAED GRUPP', address: 'Tähesaju 27/29, Tallinn' },
+  { name: 'JABPOINT OÜ', address: 'Plaasi 2, Tallinn' },
+  { name: 'Koval Company OÜ', address: 'Paavli 4, Tallinn' },
+  { name: 'WER Autoremont OÜ', address: 'Heina 33, Tallinn' },
+  { name: 'Auto colourist', address: 'Ülase tänav 10, Tallinn' },
+  {
+    name: 'Ida Autoklad OÜ',
+    address: 'Olevi tn. 31, Kohtla-Järve, Ida-Virumaa',
+  },
+];
+
 // Translations moved to src/i18n/ui.ts

@@ -39,12 +39,15 @@ const partnerHref = `/${currentLang}/partner`;
     </a>
 
     {/* Desktop Nav */}
-    <nav class="hidden lg:flex items-center gap-8">
+    <nav class="hidden lg:flex items-center gap-6">
       <a href={`${homeHref}#about`} class="site-nav-link">
         {content.about}
       </a>
       <a href={`${homeHref}#products`} class="site-nav-link">
         {content.products}
+      </a>
+      <a href={`${homeHref}#partners`} class="site-nav-link">
+        {content.partners}
       </a>
       <a href={`${homeHref}#contact`} class="site-nav-link">
         {content.contact}
@@ -111,6 +114,12 @@ const partnerHref = `/${currentLang}/partner`;
       class="block text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
     >
       {content.products}
+    </a>
+    <a
+      href={`${homeHref}#partners`}
+      class="block text-lg font-medium text-baltic-blue dark:text-gray-200 text-left py-2 border-b border-gray-100 dark:border-gray-800 w-full"
+    >
+      {content.partners}
     </a>
     <a
       href={`${homeHref}#contact`}
