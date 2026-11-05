@@ -18,6 +18,10 @@ export const BUSINESS_PARTNERS = [
     name: 'Ida Autoklad OÜ',
     address: 'Olevi tn. 31, Kohtla-Järve, Ida-Virumaa',
   },
+  { name: 'JabPoint 2', address: 'Mustjõe 39, Tallinn' },
+  { name: 'Kaptel Grupp OÜ', address: 'Lume 4, Tallinn' },
+  { name: 'KLN DEVELOPMENTS OÜ', address: 'Käevuri 1, Tallinn' },
+  { name: 'ABCautovaruosad', address: 'Noorte 2, Maardu' },
 ];
 
 // Translations moved to src/i18n/ui.ts
